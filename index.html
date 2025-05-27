@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MEL3 Digital Solutions helps your business grow online through social media, content, ads, and more.">
+  <title>MEL3 Digital Solutions</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container flex-between">
+      <div class="logo">
+        <img src="photos/MEL3DSLogo3xTransparent.png" alt="MEL3 Logo" />
+        <h1>MEL3 Digital Solutions</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h2>Grow Your Business Online</h2>
+      <p>We specialize in social media, content creation, paid ads, and everything digital to get you noticed.</p>
+      <a href="#contact" class="btn">Get a Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <h3>What We Do</h3>
+      <div class="service-grid">
+        <div class="service">Social Media Management</div>
+        <div class="service">Content Creation</div>
+        <div class="service">Paid Advertising</div>
+        <div class="service">Graphic Design</div>
+        <div class="service">Copywriting</div>
+        <div class="service">Website Integration</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section with Formspree Integration -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h3>Let’s Work Together</h3>
+      <p>Enter your details below and we'll personally reach out to you.</p>
+      <form action="https://formspree.io/f/mvgaekbj" method="POST">
+        <!-- Formspree hidden input for redirect -->
+        <input type="hidden" name="_redirect" value="thank-you.html" />
+
+        <!-- Input fields -->
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="tel" name="phone" placeholder="Phone Number" required />
+
+        <!-- Submit button -->
+        <button type="submit" class="btn">Send</button>
+      </form>
+      <p class="note">We respect your privacy. No spam ever.</p>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 MEL3 Digital Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
