@@ -158,6 +158,25 @@
     color: #555;
     margin-top: 1rem;
   }
+
+  textarea {
+    padding: 0.75rem 1rem;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-family: inherit;
+  }
+
+  #wordCount {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  
   
   /* ========== Footer ========== */
   .footer {
