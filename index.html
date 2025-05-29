@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+<script src="script.js"></script>
 <body>
 
   <!-- Header Section -->
@@ -63,7 +64,9 @@
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
         <input type="tel" name="phone" placeholder="Phone Number" required />
-        <textarea name="message" rows="5" placeholder="Tell us what you need (max 100 words)" maxlength="700"></textarea>
+        <textarea id="message" name="message" rows="5" placeholder="Tell us what you need (max 100 words)" maxlength="700"></textarea>
+        <div class="note" id="wordCount">0 / 100 words</div>
+
 
 
         <!-- Submit button -->
