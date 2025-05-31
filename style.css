@@ -215,10 +215,17 @@
   
   /* ========== Responsive Design ========== */
   @media (max-width: 768px) {
-    .flex-between {
+    .header .container {
       flex-direction: column;
       gap: 1rem;
-      align-items: flex-start;
+      align-items: center;
+    }
+  
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      margin-top: 0;
     }
   
     .hero h2 {
@@ -228,7 +235,7 @@
     .hero p {
       font-size: 1rem;
     }
-  }
+  }  
   
   @media (max-width: 480px) {
     .nav-links {
