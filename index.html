@@ -10,17 +10,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<script src="script.js"></script>
 <body>
 
   <!-- Header Section -->
-  <header class="header">
+  <header class="header" role="banner">
     <div class="container flex-between">
       <div class="logo">
-        <img src="photos/MEL3DSLogo3xTransparent.png" alt="MEL3 Logo" />
-        <h1>MEL3 Digital Solutions</h1>
+        <img src="photos/MEL3DSLogo3xTransparent.png" alt="MEL3 Digital Solutions Logo" />
+        <span class="site-title">MEL3 Digital Solutions</span>
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" role="navigation" aria-label="Main Navigation">
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -30,7 +29,7 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h2>Grow Your Business Online</h2>
+      <h1>Grow Your Business Online</h1>
       <p>We specialize in social media, content creation, paid ads, and everything digital to get you noticed.</p>
       <a href="#contact" class="btn">Get a Free Consultation</a>
     </div>
@@ -85,13 +84,11 @@
         <input type="hidden" name="_redirect" value="thank-you.html" />
 
         <!-- Input fields -->
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="tel" name="phone" placeholder="Phone Number" required />
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+        <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" pattern="[0-9]{10,15}" />
         <textarea id="message" name="message" rows="5" placeholder="Tell us what you need (max 100 words)" maxlength="700"></textarea>
         <div class="note" id="wordCount">0 / 100 words</div>
-
-
 
         <!-- Submit button -->
         <button type="submit" class="btn">Send</button>
@@ -101,10 +98,14 @@
   </section>
 
   <!-- Footer Section -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <p>© 2025 MEL3 Digital Solutions. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Script should be placed after DOM is loaded -->
+  <script src="script.js"></script>
 </body>
 </html>
+

@@ -1,5 +1,5 @@
 /* =====================
-   MEL3 Digital Solutions - style.css
+   MEL3 Digital Solutions - style.css (Enhanced)
    ===================== */
 
    :root {
@@ -8,7 +8,7 @@
     --light-bg: #ebeae9;
     --text-dark: #222;
     --white: #fff;
-    --font-main: 'Inter', sans-serif;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
   
   * {
@@ -17,11 +17,16 @@
     padding: 0;
   }
   
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     font-family: var(--font-main);
     background: var(--light-bg);
     color: var(--text-dark);
     line-height: 1.6;
+    padding-top: 80px; /* Prevent content hiding behind sticky header */
   }
   
   .container {
@@ -64,8 +69,10 @@
     transition: color 0.3s ease;
   }
   
-  .nav-links a:hover {
+  .nav-links a:hover,
+  .nav-links a:focus {
     color: var(--blue-light);
+    outline: none;
   }
   
   /* ========== Hero Section ========== */
@@ -101,8 +108,10 @@
     cursor: pointer;
   }
   
-  .btn:hover {
+  .btn:hover,
+  .btn:focus {
     background: #f1f1f1;
+    outline: none;
   }
   
   /* ========== Services Section ========== */
@@ -111,11 +120,13 @@
     padding: 4rem 2rem;
     text-align: center;
   }
+  
   .services h2 {
     font-size: 2rem;
     color: var(--blue-dark);
     margin-bottom: 2rem;
   }
+  
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -123,21 +134,26 @@
     max-width: 1200px;
     margin: 0 auto;
   }
+  
   .service-card {
     background: white;
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+  
   .service-card:hover {
     transform: translateY(-8px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
   }
+  
   .service-card h3 {
     color: var(--blue-dark);
     margin-bottom: 1rem;
     font-size: 1.25rem;
   }
+  
   .service-card p {
     color: #333;
     font-size: 1rem;
@@ -157,12 +173,22 @@
     align-items: center;
   }
   
-  .contact input {
+  .contact input,
+  textarea {
     padding: 0.75rem 1rem;
     width: 100%;
     max-width: 400px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    font-family: inherit;
+    transition: border 0.3s, box-shadow 0.3s;
+  }
+  
+  .contact input:focus,
+  textarea:focus {
+    border-color: var(--blue-dark);
+    box-shadow: 0 0 0 2px rgba(59, 106, 247, 0.2);
+    outline: none;
   }
   
   .note {
@@ -170,25 +196,13 @@
     color: #555;
     margin-top: 1rem;
   }
-
-  textarea {
-    padding: 0.75rem 1rem;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    resize: vertical;
-    font-family: inherit;
-  }
-
+  
   #wordCount {
     font-size: 0.85rem;
     color: #555;
     margin-top: -0.5rem;
     margin-bottom: 1rem;
   }
-  
-  
   
   /* ========== Footer ========== */
   .footer {
@@ -228,5 +242,16 @@
       width: 100%;
       max-width: 300px;
     }
-  } 
+  }
+  
+  @media (max-width: 380px) {
+    .hero h2 {
+      font-size: 1.5rem;
+    }
+  
+    .hero p {
+      font-size: 0.95rem;
+    }
+  }
+  
   
