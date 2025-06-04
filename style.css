@@ -1,5 +1,5 @@
 /* =====================
-   MEL3 Digital Solutions - style.css (Enhanced)
+   MEL3 Digital Solutions - style.css (Enhanced for Hamburger Menu)
    ===================== */
 
    :root {
@@ -10,17 +10,17 @@
     --white: #fff;
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
-  
+
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     font-family: var(--font-main);
     background: var(--light-bg);
@@ -28,19 +28,19 @@
     line-height: 1.6;
     /*padding-top: 5px;*/ /* Prevent content hiding behind sticky header */
   }
-  
+
   .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
   }
-  
+
   .flex-between {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   /* ========== Header ========== */
   .header {
     background: var(--white);
@@ -50,7 +50,7 @@
     z-index: 999;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   }
-  
+
   .logo {
     display: flex;
     flex-direction: column;
@@ -58,7 +58,7 @@
     justify-content: center;
     gap: 10px;
     text-align: center;
-    margin: auto;
+    /* margin: auto;  <-- Remove this for better flex behavior in header */
   }
 
   .site-title {
@@ -67,25 +67,100 @@
     font-weight: 900;
     margin-bottom: 0.25rem;
   }
-  
+
   .logo img {
     height: 55px;
   }
-  
-  .nav-links a {
+
+  /* Desktop Navigation */
+  .desktop-nav a {
     margin-left: 1rem;
     text-decoration: none;
     font-weight: 600;
     color: var(--blue-dark);
     transition: color 0.3s ease;
   }
-  
-  .nav-links a:hover,
-  .nav-links a:focus {
+
+  .desktop-nav a:hover,
+  .desktop-nav a:focus {
     color: var(--blue-light);
     outline: none;
   }
-  
+
+  /* Hamburger Icon */
+  .hamburger {
+    display: none; /* Hidden by default, shown on mobile */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000; /* Ensure it's above other elements */
+  }
+
+  .hamburger-bar {
+    width: 100%;
+    height: 3px;
+    background: var(--blue-dark);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen to the right */
+    width: 250px; /* Adjust as needed */
+    height: 100%;
+    background: var(--white);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transition: right 0.3s ease-in-out;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-menu.active {
+    right: 0; /* Slide in when active */
+  }
+
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .mobile-nav-links a {
+    text-decoration: none;
+    color: var(--blue-dark);
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .mobile-nav-links a:hover,
+  .mobile-nav-links a:focus {
+    color: var(--blue-light);
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-dark);
+    cursor: pointer;
+  }
+
+
   /* ========== Hero Section ========== */
   .hero {
     background: linear-gradient(to right, var(--blue-light), var(--blue-dark));
@@ -93,19 +168,19 @@
     text-align: center;
     padding: 4rem 1rem;
   }
-  
-  .hero h2 {
+
+  .hero h1 { /* Changed to h1 */
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
-  
+
   .hero p {
     font-size: 1.2rem;
     max-width: 600px;
     margin: auto;
     margin-bottom: 2rem;
   }
-  
+
   /* ========== Button ========== */
   .btn {
     background: var(--white);
@@ -118,26 +193,26 @@
     border: none;
     cursor: pointer;
   }
-  
+
   .btn:hover,
   .btn:focus {
     background: #f1f1f1;
     outline: none;
   }
-  
+
   /* ========== Services Section ========== */
   .services {
     background: var(--light-bg);
     padding: 4rem 2rem;
     text-align: center;
   }
-  
+
   .services h2 {
     font-size: 2rem;
     color: var(--blue-dark);
     margin-bottom: 2rem;
   }
-  
+
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -145,7 +220,7 @@
     max-width: 1200px;
     margin: 0 auto;
   }
-  
+
   .service-card {
     background: white;
     padding: 2rem;
@@ -153,29 +228,42 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
+
   .service-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
   }
-  
+
   .service-card h3 {
     color: var(--blue-dark);
     margin-bottom: 1rem;
     font-size: 1.25rem;
   }
-  
+
   .service-card p {
     color: #333;
     font-size: 1rem;
   }
-  
+
+  /* New sections for About and Portfolio */
+  .about-us, .portfolio-showcase {
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+
+  .about-us h2, .portfolio-showcase h2 {
+    font-size: 2rem;
+    color: var(--blue-dark);
+    margin-bottom: 1.5rem;
+  }
+
+
   /* ========== Contact Section ========== */
   .contact {
     padding: 4rem 1rem;
     text-align: center;
   }
-  
+
   .contact form {
     margin-top: 2rem;
     display: flex;
@@ -183,7 +271,7 @@
     gap: 1rem;
     align-items: center;
   }
-  
+
   .contact input,
   textarea {
     padding: 0.75rem 1rem;
@@ -194,27 +282,27 @@
     font-family: inherit;
     transition: border 0.3s, box-shadow 0.3s;
   }
-  
+
   .contact input:focus,
   textarea:focus {
     border-color: var(--blue-dark);
     box-shadow: 0 0 0 2px rgba(59, 106, 247, 0.2);
     outline: none;
   }
-  
+
   .note {
     font-size: 0.85rem;
     color: #555;
     margin-top: 1rem;
   }
-  
+
   #wordCount {
     font-size: 0.85rem;
     color: #555;
-    margin-top: -0.5rem;
+    margin-top: -0.5rem; /* Adjust this to pull it closer to the textarea */
     margin-bottom: 1rem;
   }
-  
+
   /* ========== Footer ========== */
   .footer {
     background: var(--white);
@@ -223,53 +311,66 @@
     font-size: 0.9rem;
     color: #555;
   }
-  
+
   /* ========== Responsive Design ========== */
   @media (max-width: 768px) {
+    .desktop-nav {
+      display: none; /* Hide desktop nav on small screens */
+    }
+
+    .hamburger {
+      display: flex; /* Show hamburger on small screens */
+    }
+
     .header .container {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      /* Re-evaluate header layout for mobile */
+      flex-direction: row; /* Keep elements in a row */
+      justify-content: space-between; /* Space out logo and hamburger */
       align-items: center;
     }
-  
-    .nav-links {
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
-      width: 100%;
-      justify-content: flex-end;
-      margin-top: 0.5rem;
-    }
-  
+
     .logo {
-      flex: 1;
+      /* No longer need margin: auto; - let flex handle it */
+      margin: 0;
+    }
+
+    .hero h1 {
+      font-size: 2rem; /* Adjust for smaller screens */
+    }
+
+    .hero p {
+      font-size: 1rem; /* Adjust for smaller screens */
     }
   }
-   
-  
+
+
   @media (max-width: 480px) {
-    .nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-  
     .btn {
       width: 100%;
       max-width: 300px;
     }
+
+    .mobile-menu {
+      width: 100%; /* Full width on very small screens */
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+
+    .hero p {
+      font-size: 0.9rem;
+    }
   }
-  
+
+  /*
   @media (max-width: 380px) {
-    .hero h2 {
+    .hero h2 { // This was h2 before, adjust to h1 if using this
       font-size: 1.5rem;
     }
-  
+
     .hero p {
       font-size: 0.95rem;
     }
   }
-  
-  
+  */
