@@ -62,14 +62,14 @@
   }
 
   .site-title {
-    font-size: 1.5rem;
+    font-size: 2.2rem;
     color: #1e90ff;
     font-weight: 900;
     margin-bottom: 0.25rem;
   }
 
   .logo img {
-    height: 55px;
+    height: 70px;
   }
 
   /* Desktop Navigation */
@@ -116,7 +116,7 @@
     right: -100%; /* Start off-screen to the right */
     width: 250px; /* Adjust as needed */
     height: 100%;
-    background: var(--white);
+    background: var(#ebeae9);
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 999;
     transition: right 0.3s ease-in-out;
@@ -170,7 +170,7 @@
   }
 
   .hero h1 { /* Changed to h1 */
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
 
@@ -196,7 +196,7 @@
 
   .btn:hover,
   .btn:focus {
-    background: #f1f1f1;
+    background: #e2e1e1;
     outline: none;
   }
 
