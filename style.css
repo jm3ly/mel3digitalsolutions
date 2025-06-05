@@ -69,7 +69,7 @@
   }
 
   .logo img {
-    height: 70px;
+    height: 100px;
   }
 
   /* Desktop Navigation */
@@ -116,7 +116,7 @@
     right: -100%; /* Start off-screen to the right */
     width: 250px; /* Adjust as needed */
     height: 100%;
-    background: var(#ebeae9);
+    background: var(--white);
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 999;
     transition: right 0.3s ease-in-out;
