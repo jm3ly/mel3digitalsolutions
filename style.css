@@ -19,6 +19,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 150px; /* Adjust this value to match your header's height */
   }
 
   body {
@@ -26,7 +27,6 @@
     background: var(--light-bg);
     color: var(--text-dark);
     line-height: 1.6;
-    /*padding-top: 5px;*/ /* Prevent content hiding behind sticky header */
   }
 
   .container {
@@ -58,7 +58,6 @@
     justify-content: center;
     gap: 10px;
     text-align: center;
-    /* margin: auto;  <-- Remove this for better flex behavior in header */
   }
 
   .site-title {
