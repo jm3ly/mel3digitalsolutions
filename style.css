@@ -159,26 +159,76 @@
     cursor: pointer;
   }
 
+  /* ========== Intro Section ========== */
+  .intro-section {
+    /* Positioning to cover the entire screen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* 100% of the viewport height */
+    z-index: 10000; /* Extremely high z-index to ensure it's on top of everything */
 
-  /* ========== Hero Section ========== */
-  .hero {
-    background: linear-gradient(to right, var(--blue-light), var(--blue-dark));
-    color: var(--white);
-    text-align: center;
-    padding: 4rem 1rem;
+    /* Centering the content (the logo) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Background color - using a dark variable for dramatic effect */
+    background: var(--text-dark);
   }
 
-  .hero h1 { /* Changed to h1 */
+  .intro-logo {
+    text-align: center; /* This is the new rule that fixes the centering */
+  }
+
+  .intro-logo img {
+    /* Start with a good size, we can animate this later */
+    transform: scale(1);
+    max-width: 60%; /* Prevent logo from being too wide on large screens */
+    height: auto;
+  }
+
+  /* This is an empty container for now, we'll add stars to it with JS */
+  .stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensures stars don't appear outside the screen */
+  }
+
+  /* Styling for the individual stars we will create with JS */
+.star {
+  position: absolute; /* Allows us to place it anywhere on screen */
+  background: white;
+  border-radius: 50%; /* Makes it a circle */
+  pointer-events: none; /* Stars shouldn't be clickable */
+}
+
+
+  /* ========== Welcome Section (Replaces Old Hero) ========== */
+  /* This styles the first section seen AFTER the intro animation */
+  .welcome-section {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(to right, var(--blue-light), var(--blue-dark));
+    color: var(--white);
+  }
+
+  .welcome-section h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
 
-  .hero p {
+  .welcome-section p {
     font-size: 1.2rem;
     max-width: 600px;
     margin: auto;
     margin-bottom: 2rem;
   }
+
 
   /* ========== Button ========== */
   .btn {
@@ -266,7 +316,7 @@
   .contact form {
     margin-top: 2rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* This typo is now fixed */
     gap: 1rem;
     align-items: center;
   }
@@ -333,11 +383,11 @@
       margin: 0;
     }
 
-    .hero h1 {
+    .welcome-section h1, .hero h1 {
       font-size: 2rem; /* Adjust for smaller screens */
     }
 
-    .hero p {
+    .welcome-section p, .hero p {
       font-size: 1rem; /* Adjust for smaller screens */
     }
   }
@@ -353,11 +403,11 @@
       width: 100%; /* Full width on very small screens */
     }
 
-    .hero h1 {
+    .welcome-section h1, .hero h1 {
       font-size: 1.8rem;
     }
 
-    .hero p {
+    .welcome-section p, .hero p {
       font-size: 0.9rem;
     }
   }
