@@ -344,6 +344,13 @@
   flex-basis: 40%;
 }
 
+.about-image img {
+  width: 100%; /* Makes the image fill its container's width */
+  height: auto; /* Maintains the correct aspect ratio */
+  display: block; /* Good practice for layout consistency */
+  border-radius: 16px; /* Adds the same rounded corners from the placeholder */
+}
+
 .image-placeholder {
   width: 100%;
   padding-top: 100%; /* Creates a perfect square aspect ratio */
