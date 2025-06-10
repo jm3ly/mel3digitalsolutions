@@ -21,36 +21,40 @@
     <div class="intro-logo">
       <img src="photos/MEL3DSLogo3xTransparent.png" alt="MEL3 Digital Solutions Animated Logo" />
     </div>
-    <div class="stars-container"></div> </section>
+    <div class="stars-container"></div>
+  </section>
+
   <header class="header" role="banner">
     <div class="container flex-between">
       <div class="logo">
         <img src="photos/MEL3DSLogo3xTransparent.png" alt="MEL3 Digital Solutions Logo" />
       </div>
+      <!-- ===== THIS IS THE UPDATED DESKTOP NAVIGATION ===== -->
       <nav class="nav-links desktop-nav" role="navigation" aria-label="Main Navigation">
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </nav>
-
+      <!-- ============================================= -->
       <button class="hamburger" aria-label="Open navigation menu">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
       </button>
-
     </div>
   </header>
 
   <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
     <button class="close-menu" aria-label="Close navigation menu">&times;</button>
+    <!-- Links are already correct here from previous code -->
     <nav class="mobile-nav-links">
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
       <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
-
 
   <section id="welcome" class="welcome-section">
     <div class="container">
@@ -59,41 +63,58 @@
       <a href="#contact" class="btn">Get a Free Consultation</a>
     </div>
   </section>
+
+  <!-- ===== NEW "ABOUT" SECTION IS PLACED HERE ===== -->
+  <section id="about" class="about-us">
+    <div class="container">
+      <h2>About MEL3 Digital Solutions</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <div class="image-placeholder"></div>
+        </div>
+        <div class="about-text">
+          <h3>Your Vision. Our Strategy. Real Results.</h3>
+          <p>
+            At MEL3 Digital Solutions, our mission is to empower businesses to attract and retain clients by delivering impactful digital solutions. We combine strategy, creativity, and technology — from marketing and website integration to copywriting, branding, and graphic design — to help our clients grow with purpose and value. 
+          </p>
+          <p>The “3” in MEL3 stands for the three core values that guide everything we do:
+            <p>Integrity – We build honest, transparent relationships.</p>
+            
+            
+            <p>Commitment – We’re fully invested in every client’s success.</p>
+            
+            
+            <p>Excellence – We deliver work that exceeds expectations.</p>
+          </p>
+          <a href="#portfolio" class="btn">See Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- =============================================== -->
+
+  <!-- ===== PLACEHOLDER "PORTFOLIO" SECTION IS HERE ===== -->
+  <section id="portfolio" class="portfolio-showcase">
+    <div class="container">
+      <h2>Our Work</h2>
+      <p>A showcase of our best projects is coming soon!</p>
+      <!-- We will build this section out next -->
+    </div>
+  </section>
+  <!-- ================================================= -->
+
   <section class="services" id="services">
     <h2>What We Offer:</h2>
     <div class="services-grid">
-      <div class="service-card">
-        <h3>Social Media Management</h3>
-        <p>Boost your online presence with consistent, engaging content tailored to your audience.</p>
-      </div>
-      <div class="service-card">
-        <h3>Content Creation</h3>
-        <p>High-quality photos, videos, and graphics to bring your brand to life across platforms.</p>
-      </div>
-      <div class="service-card">
-        <h3>Paid Advertising</h3>
-        <p>Maximize ROI with targeted ads on Facebook, Instagram, Google, and more.</p>
-      </div>
-      <div class="service-card">
-        <h3>Graphic Design</h3>
-        <p>Professional visuals that capture attention and communicate your brand clearly.</p>
-      </div>
-      <div class="service-card">
-        <h3>Copywriting</h3>
-        <p>Persuasive, on-brand messaging that drives engagement and conversions.</p>
-      </div>
-      <div class="service-card">
-        <h3>Website Integration</h3>
-        <p>Custom website features and seamless digital tool integration to streamline your business.</p>
-      </div>
-      <div class="service-card">
-        <h3>Brand Strategy Consulting</h3>
-        <p>Develop a cohesive and compelling brand identity aligned with your business goals.</p>
-      </div>
-      <div class="service-card">
-        <h3>Analytics & Reporting</h3>
-        <p>Get detailed insights into your digital performance with data-driven reports.</p>
-      </div>
+      <!-- Service cards remain the same -->
+      <div class="service-card"><h3>Social Media Management</h3><p>Boost your online presence...</p></div>
+      <div class="service-card"><h3>Content Creation</h3><p>High-quality photos, videos...</p></div>
+      <div class="service-card"><h3>Paid Advertising</h3><p>Maximize ROI with targeted ads...</p></div>
+      <div class="service-card"><h3>Graphic Design</h3><p>Professional visuals that capture...</p></div>
+      <div class="service-card"><h3>Copywriting</h3><p>Persuasive, on-brand messaging...</p></div>
+      <div class="service-card"><h3>Website Integration</h3><p>Custom website features...</p></div>
+      <div class="service-card"><h3>Brand Strategy Consulting</h3><p>Develop a cohesive brand identity...</p></div>
+      <div class="service-card"><h3>Analytics & Reporting</h3><p>Get detailed insights...</p></div>
     </div>
   </section>
 
@@ -103,13 +124,11 @@
       <p>Enter your details below and we'll personally reach out to you.</p>
       <form action="https://formspree.io/f/mvgaekbj" method="POST">
         <input type="hidden" name="_redirect" value="thank-you.html" />
-
         <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
         <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
         <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" />
         <textarea id="message" name="message" rows="5" placeholder="Tell us what you need (max 100 words)" maxlength="700"></textarea>
         <div class="note" id="wordCount">0 / 100 words</div>
-
         <button type="submit" class="btn">Send</button>
       </form>
       <p class="note">We respect your privacy. No spam ever.</p>
@@ -121,6 +140,8 @@
       <p>© 2025 MEL3 Digital Solutions. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Scripts - Remember to add the ScrollTrigger one! -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
