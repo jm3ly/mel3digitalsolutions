@@ -272,11 +272,24 @@
 
   .service-card {
     background: white;
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* These new rules will center the content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
+
+  .service-icon {
+    font-size: 2.5rem; /* Makes the icon larger */
+    color: var(--blue-light); /* Uses your brand color */
+    margin-bottom: 1.5rem; /* Adds space between the icon and the title */
+  }
+  
 
   .service-card:hover {
     transform: translateY(-8px);
