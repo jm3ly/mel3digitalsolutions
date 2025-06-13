@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="icon" type="image/png" sizes="32x32" href="photos/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="photos/favicon.png">
   <link rel="apple-touch-icon" href="photos/favicon.png">
@@ -21,36 +22,40 @@
     <div class="intro-logo">
       <img src="photos/MEL3DSLogo3xTransparent.png" alt="MEL3 Digital Solutions Animated Logo" />
     </div>
-    <div class="stars-container"></div> </section>
+    <div class="stars-container"></div>
+  </section>
+
   <header class="header" role="banner">
     <div class="container flex-between">
       <div class="logo">
         <img src="photos/MEL3DSLogo3xTransparent.png" alt="MEL3 Digital Solutions Logo" />
       </div>
+      <!-- ===== THIS IS THE UPDATED DESKTOP NAVIGATION ===== -->
       <nav class="nav-links desktop-nav" role="navigation" aria-label="Main Navigation">
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </nav>
-
+      <!-- ============================================= -->
       <button class="hamburger" aria-label="Open navigation menu">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
       </button>
-
     </div>
   </header>
 
   <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
     <button class="close-menu" aria-label="Close navigation menu">&times;</button>
+    <!-- Links are already correct here from previous code -->
     <nav class="mobile-nav-links">
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
       <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
-
 
   <section id="welcome" class="welcome-section">
     <div class="container">
@@ -59,43 +64,129 @@
       <a href="#contact" class="btn">Get a Free Consultation</a>
     </div>
   </section>
+
+  <!-- ===== NEW "ABOUT" SECTION IS PLACED HERE ===== -->
+  <section id="about" class="about-us">
+    <div class="container">
+      <h2>About MEL3 Digital Solutions</h2>
+      <div class="about-content">
+  
+        <div class="about-image">
+          <img src="photos/jesusFullBodyBlackandWhite.jpg" alt="A photo of the founder of MEL3 Digital Solutions">
+        </div>
+  
+        <div class="about-text">
+          <h3>Your Vision. Our Strategy. Real Results.</h3>
+          <p>
+            At MEL3 Digital Solutions, our mission is to empower businesses to attract and retain clients by delivering impactful digital solutions. We combine strategy, creativity, and technology — from marketing and website integration to copywriting, branding, and graphic design — to help our clients grow with purpose and value.
+          </p>
+          <p>
+            The "3" in MEL3 stands for the three core values that guide everything we do: Integrity, Creativity, and Excellence. We believe in honest, transparent relationships.
+          </p>
+          <a href="#portfolio" class="btn">See Our Work</a>
+        </div>
+  
+      </div> </div>
+  </section>
+  <!-- =============================================== -->
+
+  <!-- ===== "PORTFOLIO" SECTION IS HERE ===== -->
+  <!--<section id="portfolio" class="portfolio-showcase">
+    <div class="container">
+      <h2>Our Work</h2>
+      <div class="portfolio-grid">
+  
+        <div class="portfolio-card">
+          <div class="portfolio-image">
+            <img src="https://via.placeholder.com/600x400.png?text=Project+One" alt="Description of project one">
+          </div>
+          <div class="portfolio-info">
+            <h3>Client Project One</h3>
+            <p>A brief description of the project, the challenge, and the successful outcome we delivered.</p>
+            <div class="portfolio-tags">
+              <span>Social Media</span>
+              <span>Content Creation</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="portfolio-card">
+          <div class="portfolio-image">
+            <img src="https://via.placeholder.com/600x400.png?text=Project+Two" alt="Description of project two">
+          </div>
+          <div class="portfolio-info">
+            <h3>Client Project Two</h3>
+            <p>A brief description of the project, the challenge, and the successful outcome we delivered.</p>
+            <div class="portfolio-tags">
+              <span>Brand Design</span>
+              <span>Web Integration</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="portfolio-card">
+          <div class="portfolio-image">
+            <img src="https://via.placeholder.com/600x400.png?text=Project+Three" alt="Description of project three">
+          </div>
+          <div class="portfolio-info">
+            <h3>Client Project Three</h3>
+            <p>A brief description of the project, the challenge, and the successful outcome we delivered.</p>
+            <div class="portfolio-tags">
+              <span>Graphic Design</span>
+              <span>Copywriting</span>
+            </div>
+          </div>
+        </div>
+  
+      </div> </div>
+  </section> -->
+  <!-- ================================================= -->
+
   <section class="services" id="services">
     <h2>What We Offer:</h2>
     <div class="services-grid">
       <div class="service-card">
+        <i class="fa-solid fa-share-nodes service-icon"></i>
         <h3>Social Media Management</h3>
         <p>Boost your online presence with consistent, engaging content tailored to your audience.</p>
       </div>
       <div class="service-card">
+        <i class="fa-solid fa-camera-retro service-icon"></i>
         <h3>Content Creation</h3>
-        <p>High-quality photos, videos, and graphics to bring your brand to life across platforms.</p>
+        <p>High-quality graphics and videos to bring your brand to life across platforms.</p>
       </div>
       <div class="service-card">
+        <i class="fa-solid fa-bullhorn service-icon"></i>
         <h3>Paid Advertising</h3>
         <p>Maximize ROI with targeted ads on Facebook, Instagram, Google, and more.</p>
       </div>
       <div class="service-card">
+        <i class="fa-solid fa-palette service-icon"></i>
         <h3>Graphic Design</h3>
         <p>Professional visuals that capture attention and communicate your brand clearly.</p>
       </div>
       <div class="service-card">
+        <i class="fa-solid fa-pen-to-square service-icon"></i>
         <h3>Copywriting</h3>
         <p>Persuasive, on-brand messaging that drives engagement and conversions.</p>
       </div>
       <div class="service-card">
+        <i class="fa-solid fa-code service-icon"></i>
         <h3>Website Integration</h3>
         <p>Custom website features and seamless digital tool integration to streamline your business.</p>
       </div>
       <div class="service-card">
+        <i class="fa-solid fa-lightbulb service-icon"></i>
         <h3>Brand Strategy Consulting</h3>
         <p>Develop a cohesive and compelling brand identity aligned with your business goals.</p>
       </div>
       <div class="service-card">
+        <i class="fa-solid fa-chart-pie service-icon"></i>
         <h3>Analytics & Reporting</h3>
         <p>Get detailed insights into your digital performance with data-driven reports.</p>
       </div>
     </div>
-  </section>
+    </section>
 
   <section id="contact" class="contact">
     <div class="container">
@@ -103,13 +194,11 @@
       <p>Enter your details below and we'll personally reach out to you.</p>
       <form action="https://formspree.io/f/mvgaekbj" method="POST">
         <input type="hidden" name="_redirect" value="thank-you.html" />
-
         <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
         <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
         <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" />
         <textarea id="message" name="message" rows="5" placeholder="Tell us what you need (max 100 words)" maxlength="700"></textarea>
         <div class="note" id="wordCount">0 / 100 words</div>
-
         <button type="submit" class="btn">Send</button>
       </form>
       <p class="note">We respect your privacy. No spam ever.</p>
@@ -121,6 +210,8 @@
       <p>© 2025 MEL3 Digital Solutions. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Scripts - Remember to add the ScrollTrigger one! -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>

@@ -272,11 +272,24 @@
 
   .service-card {
     background: white;
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* These new rules will center the content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
+
+  .service-icon {
+    font-size: 2.5rem; /* Makes the icon larger */
+    color: var(--blue-light); /* Uses your brand color */
+    margin-bottom: 1.5rem; /* Adds space between the icon and the title */
+  }
+  
 
   .service-card:hover {
     transform: translateY(-8px);
@@ -306,6 +319,162 @@
     margin-bottom: 1.5rem;
   }
 
+  /* ========== About and Portfolio Sections ========== */
+
+.about-us, .portfolio-showcase {
+  padding: 5rem 1rem;
+}
+
+.about-us {
+  background: var(--white); /* A clean white background to stand out */
+}
+
+.portfolio-showcase {
+   background: var(--light-bg); /* Matches the services section background */
+}
+
+.about-us h2, .portfolio-showcase h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--blue-dark);
+  margin-bottom: 3rem;
+}
+
+.portfolio-showcase p {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-image {
+  flex-basis: 40%;
+}
+
+.about-image img {
+  width: 100%; /* Makes the image fill its container's width */
+  height: auto; /* Maintains the correct aspect ratio */
+  display: block; /* Good practice for layout consistency */
+  border-radius: 16px; /* Adds the same rounded corners from the placeholder */
+}
+
+.image-placeholder {
+  width: 100%;
+  padding-top: 100%; /* Creates a perfect square aspect ratio */
+  background-color: #e0e0e0;
+  border-radius: 16px;
+}
+
+.about-text {
+  flex-basis: 60%;
+}
+
+.about-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--blue-light);
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Add this new CSS to your style.css file */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.portfolio-card {
+  position: relative; /* This is crucial for layering the text on top */
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3; /* Gives cards a consistent 4:3 aspect ratio */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: var(--light-bg); /* Dark background for if images are slow to load */
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes the image fill the entire card without stretching */
+  transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-image img {
+  transform: scale(1.05); /* A subtle zoom effect on the image on hover */
+}
+
+.portfolio-info {
+  /* This is the text overlay */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; /* Stretches the overlay across the full width */
+  color: var(--white);
+  padding: 3rem 1.5rem 1.5rem; /* More padding at the top for the gradient */
+
+  /* The gradient makes text readable over any image */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+
+  /* Prepare for hover animation */
+  transform: translateY(20%); /* Start slightly hidden */
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-info {
+  transform: translateY(0); /* Slide up into view */
+  opacity: 1; /* Fade into view */
+}
+
+.portfolio-info h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-info p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.portfolio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.portfolio-tags span {
+  /* A semi-transparent background looks great on the overlay */
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px); /* A cool "glassmorphism" effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Responsive Design for the About section */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 
   /* ========== Contact Section ========== */
   .contact {
