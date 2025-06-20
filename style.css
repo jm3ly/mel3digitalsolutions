@@ -592,3 +592,50 @@
     }
   }
   */
+
+  /* ========== Scrolling Portfolio Gallery ========== */
+
+.portfolio-gallery-container {
+  display: flex;
+  gap: 2vw; /* Gap between columns */
+  padding: 2vw;
+  overflow: hidden; /* Hide anything that goes outside the viewport */
+  background: var(--light-bg);
+}
+
+.gallery-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw; /* Gap between images in a column */
+  min-width: 250px; /* Minimum width for a column */
+  width: 100%;
+}
+
+.gallery-column img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* This is the CSS animation magic */
+@keyframes scrollUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+
+@keyframes scrollDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+/* Apply the animations */
+.gallery-column:nth-child(1) {
+  animation: scrollDown 60s linear infinite;
+}
+.gallery-column:nth-child(2) {
+  animation: scrollUp 80s linear infinite;
+}
+.gallery-column:nth-child(3) {
+  animation: scrollDown 70s linear infinite;
+}
