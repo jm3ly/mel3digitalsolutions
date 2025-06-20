@@ -164,3 +164,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// After
+gsap.to(batch, {
+  autoAlpha: 1,
+  y: 0,
+  duration: 0.5, // <-- Now faster
+  ease: 'power3.out',
+  stagger: 0.2
+})
