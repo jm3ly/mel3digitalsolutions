@@ -220,45 +220,20 @@
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2>Let’s Work Together</h2>
-        <p>Enter your details and we’ll reach out with next steps within one business day.</p>
-        <form action="https://formspree.io/f/mvgaekbj" method="POST">
-          <input type="hidden" name="_redirect" value="thank-you.html" />
-          <div class="form-field">
-            <label for="name">Your Name</label>
-            <input id="name" type="text" name="name" placeholder="Your Name" required autocomplete="name" />
-          </div>
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email" placeholder="Your Email" required autocomplete="email" />
-          </div>
-          <div class="form-field">
-            <label for="phone">Phone</label>
-            <input id="phone" type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" />
-          </div>
-          <div class="form-field">
-            <label for="service">What do you need?</label>
-            <select id="service" name="service">
-              <option value="Social Media Management">Social Media Management</option>
-              <option value="SEO">SEO</option>
-              <option value="Content Creation">Content Creation</option>
-              <option value="Paid Advertising">Paid Advertising</option>
-              <option value="Website Integration">Website Integration</option>
-              <option value="Brand Strategy">Brand Strategy</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="message">Project Details <span class="muted">(max 700 characters)</span></label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell us what you need" maxlength="700"></textarea>
-            <div class="note" id="wordCount">0 / 100 words</div>
-          </div>
-          <button type="submit" class="btn">Send</button>
-          <p class="note">We respect your privacy. No spam ever.</p>
-        </form>
-      </div>
+    <section id="contact" 
+    class="contact"> <div class="container"> 
+      <h3>Let’s Work Together</h3> 
+      <p>Enter your details below and we'll personally reach out to you.</p> 
+      <form action="https://formspree.io/f/mvgaekbj" method="POST"> 
+        <input type="hidden" name="_redirect" value="thank-you.html" /> 
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" /> 
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" /> 
+        <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" /> 
+        <textarea id="message" name="message" rows="5" placeholder="Tell us what you need (max 100 words)" maxlength="700"></textarea> 
+        <div class="note" id="wordCount">0 / 100 words</div> 
+        <button type="submit" class="btn">Send</button> </form> 
+        <p class="note">We respect your privacy. No spam ever.</p> 
+      </div> 
     </section>
   </main>
 
