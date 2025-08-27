@@ -3,7 +3,7 @@
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
   <!-- Primary SEO -->
@@ -18,12 +18,12 @@
   <meta name="twitter:title" content="Portfolio | MEL3 Digital Solutions" />
   <meta name="twitter:description" content="Explore MEL3 DS work in an infinite horizontal gallery." />
 
-  <!-- Assets to match homepage -->
+  <!-- Assets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Favicons (same paths as homepage) -->
+  <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="photos/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="photos/favicon.png">
   <link rel="apple-touch-icon" href="photos/favicon.png">
@@ -32,12 +32,24 @@
   <style>
     :root{ --bg-1:#06070d; --bg-2:#0a0b14; --ink:#e9eef7; --muted:#98a2b3; --sky:#7dd3fc; }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{ margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--ink); background:var(--bg-2); overflow-x:hidden; }
-    a{color:inherit; text-decoration:none}
-    .wrap{position:relative; min-height:100vh}
 
-    /* Header (aligned with site nav structure) */
+    /* Ensure no sideways scroll + dynamic viewport height */
+    html{height:100%; overflow-x:hidden;}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--ink);
+      background:var(--bg-2);
+      overflow-x:hidden;
+      min-height:100dvh;
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+    .wrap{position:relative; min-height:100dvh;}
+
+    a{color:inherit; text-decoration:none}
+
+    /* Header */
     header{position:relative; z-index:10; max-width:1400px; margin:0 auto; padding:16px 24px}
     .brand{display:flex; align-items:center; gap:14px}
     .logo-img{width:36px; height:36px; border-radius:12px; display:block}
@@ -53,7 +65,11 @@
 
     /* Carousel */
     .section{position:relative; z-index:10; padding:0 16px 64px}
-    .carousel{position:relative; max-width:1400px; margin:0 auto; height:440px; overflow:hidden; touch-action:pan-y}
+    .carousel{
+      position:relative; max-width:1400px; margin:0 auto; height:440px; overflow:hidden;
+      touch-action: pan-y; /* allow natural vertical scroll while we handle horizontal drag */
+      user-select:none;
+    }
     .hint{position:absolute; top:10px; left:50%; transform:translateX(-50%); color:#cbd5e180; font-size:13px; letter-spacing:.04em}
     .edge-left,.edge-right{position:absolute; top:0; bottom:0; width:96px; pointer-events:none}
     .edge-left{left:0; background:linear-gradient(90deg,var(--bg-2),transparent)}
@@ -75,14 +91,19 @@
     /* Footer */
     footer{position:relative; z-index:10; text-align:center; padding:0 24px 32px; color:#94a3b8; font-size:14px}
 
-    /* Background layers */
-    #starfield{position:fixed; inset:0; width:100%; height:100%; z-index:0}
-    .landscape{position:fixed; inset:0; z-index:1; pointer-events:none}
+    /* Background layers — use dynamic viewport height */
+    #starfield{position:fixed; inset:0; width:100vw; height:100dvh; z-index:0}
+    .landscape{position:fixed; inset:0; height:100dvh; z-index:1; pointer-events:none}
     .mountains{position:absolute; left:0; right:0; bottom:0; height:26vh; clip-path: polygon(0% 80%,10% 70%,20% 78%,30% 68%,42% 76%,52% 62%,64% 74%,74% 66%,86% 72%,100% 64%,100% 100%,0% 100%); background: linear-gradient(180deg, rgba(12,13,22,0) 0%, rgba(12,13,22,.4) 30%, rgba(12,13,22,.95) 100%)}
     .hills{position:absolute; left:0; right:0; bottom:0; height:18vh; filter:blur(2px); clip-path: polygon(0% 60%, 8% 70%, 18% 62%, 28% 74%, 40% 66%, 52% 78%, 64% 62%, 74% 70%, 88% 58%, 100% 66%, 100% 100%, 0% 100%); background: linear-gradient(180deg, rgba(9,10,18,.2) 0%, rgba(9,10,18,.85) 60%, rgba(9,10,18,1) 100%)}
     .ground{position:absolute; left:0; right:0; bottom:0; height:12vh; background:var(--bg-2)}
+    .top-vignette{position:fixed; inset:0; height:100dvh; pointer-events:none; z-index:2; background: radial-gradient(1000px 600px at 50% 0%, rgba(255,255,255,.06), transparent 60%)}
 
-    .top-vignette{position:fixed; inset:0; pointer-events:none; z-index:2; background: radial-gradient(1000px 600px at 50% 0%, rgba(255,255,255,.06), transparent 60%)}
+    /* Cursor polish on devices with hover */
+    @media (hover:hover){
+      .carousel{ cursor: grab; }
+      .carousel.dragging{ cursor: grabbing; }
+    }
 
     /* --------- Mobile tweaks --------- */
     @media (max-width: 768px){
@@ -95,9 +116,43 @@
       .hint{display:none}
     }
 
+    /* Fallback for browsers without dvh support */
+    @supports not (height: 100dvh){
+      body{ min-height:100vh; }
+      .wrap{ min-height:100vh; }
+      #starfield, .landscape, .top-vignette{ height:100vh; }
+    }
+
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce){
       .center-line{display:none}
+    }
+
+    /* --- Zapier Chatbot: responsive sizing & position --- */
+    iframe[src*="interfaces.zapier.com"]{
+      position: fixed !important;
+      right: 16px !important;
+      bottom: 16px !important;
+      width: min(92vw, 380px) !important;
+      height: min(70vh, 560px) !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      border: 0 !important;
+      border-radius: 16px !important;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35) !important;
+      z-index: 9999 !important;
+    }
+    @media (max-width: 768px){
+      iframe[src*="interfaces.zapier.com"]{
+        width: 92vw !important;
+        height: 65vh !important;
+      }
+    }
+    zapier-interfaces-chatbot-embed{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 9998;
     }
   </style>
 </head>
@@ -116,7 +171,7 @@
         <a href="/" aria-label="MEL3 Digital Solutions home">
           <img class="logo-img" src="photos/MEL3DSLogo3xTransparent.png" width="36" height="36" alt="MEL3 Digital Solutions logo"/>
         </a>
-        <div class="site-title">MEL3 Digital Solutions</div>
+        <!--<div class="site-title">MEL3 Digital Solutions</div>-->
         <div class="spacer"></div>
         <nav aria-label="Main Navigation">
           <a href="/">Home</a>
@@ -129,7 +184,7 @@
     </header>
 
     <section class="hero">
-      <h1>Bold, Efficient Marketing & Design</h1>
+      <h1>Bold & Efficient Marketing and Design</h1>
       <p class="sub">A living portfolio by <strong>MEL3 DS</strong>. Move your mouse <em>or finger</em> horizontally to control speed. The further from the center, the faster it scrolls. Hover/touch near center to pause.</p>
     </section>
 
@@ -156,10 +211,14 @@
       const canvas = document.getElementById('starfield');
       const ctx = canvas.getContext('2d');
       let DPR = Math.max(1, Math.floor(window.devicePixelRatio || 1));
+
       function resize(){
-        const w = canvas.clientWidth, h = canvas.clientHeight;
-        canvas.width = w * DPR; canvas.height = h * DPR; ctx.setTransform(1,0,0,1,0,0); ctx.scale(DPR,DPR);
+        const rect = canvas.getBoundingClientRect();
+        const w = Math.round(rect.width), h = Math.round(rect.height);
+        canvas.width = w * DPR; canvas.height = h * DPR;
+        ctx.setTransform(1,0,0,1,0,0); ctx.scale(DPR,DPR);
       }
+
       const density = 0.00013; // stars per px^2
       let stars = [];
       function seed(){
@@ -207,7 +266,7 @@
       {type:'image', title:'Poster — Live Music Night', subtitle:'Graphic Design', src:'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop'}
     ];
 
-    // ============== Carousel Logic (desktop + mobile tuned) ==============
+    // ============== Carousel Logic (desktop + mobile tuned, with finger drag) ==============
     let MAX_SPEED = 1.8;   // px/ms at far edges (desktop)
     let AUTO_DRIFT = reducedMotion ? 0 : 0.06; // 0 when reduced motion
     let SMOOTHING = 0.18;
@@ -280,21 +339,77 @@
     setConfigForViewport();
     computeTrackWidth();
 
-    // pointer/mouse/touch support
+    // --------- Interaction (hover speed + finger/mouse drag with inertia) ---------
     const onPointerMove = (clientX) => {
       const rect = carousel.getBoundingClientRect();
       mouseX = clientX - rect.left;
     };
 
+    // Hover/pointer movement to control speed (kept for desktop/laptop)
     carousel.addEventListener('pointermove', (e)=>{ onPointerMove(e.clientX); }, {passive:true});
     carousel.addEventListener('pointerleave', ()=>{ mouseX = null; }, {passive:true});
-    // Keep mouse events for older browsers
     carousel.addEventListener('mousemove', (e)=>{ onPointerMove(e.clientX); }, {passive:true});
     carousel.addEventListener('mouseleave', ()=>{ mouseX = null; }, {passive:true});
-    // Touch fallback
-    carousel.addEventListener('touchstart', (e)=>{ if(e.touches[0]) onPointerMove(e.touches[0].clientX); }, {passive:true});
-    carousel.addEventListener('touchmove', (e)=>{ if(e.touches[0]) onPointerMove(e.touches[0].clientX); }, {passive:true});
-    carousel.addEventListener('touchend', ()=>{ mouseX = null; }, {passive:true});
+
+    // Drag state + helpers
+    let isDragging = false;
+    let dragLastX = 0;
+    let dragLastT = 0;
+
+    const startDrag = (clientX) => {
+      isDragging = true;
+      dragLastX = clientX;
+      dragLastT = performance.now();
+      carousel.classList.add('dragging');
+    };
+    const moveDrag = (clientX) => {
+      if(!isDragging) return;
+      const now = performance.now();
+      const dx = clientX - dragLastX;
+      const dt = Math.max(1, now - dragLastT);
+
+      offset = offset - dx;      // move content opposite to finger
+      speed = -(dx / dt);        // px/ms, feeds inertia
+
+      dragLastX = clientX;
+      dragLastT = now;
+    };
+    const endDrag = () => {
+      if(!isDragging) return;
+      isDragging = false;
+      carousel.classList.remove('dragging');
+    };
+
+    // Touch drag (passive:false so we can preventDefault while dragging)
+    carousel.addEventListener('touchstart', (e)=>{
+      if(e.touches[0]){
+        onPointerMove(e.touches[0].clientX);
+        startDrag(e.touches[0].clientX);
+      }
+    }, {passive:true});
+
+    carousel.addEventListener('touchmove', (e)=>{
+      if(e.touches[0]){
+        if(isDragging) e.preventDefault(); // stop browser horizontal swipe stealing the gesture
+        onPointerMove(e.touches[0].clientX);
+        moveDrag(e.touches[0].clientX);
+      }
+    }, {passive:false});
+
+    carousel.addEventListener('touchend', endDrag, {passive:true});
+    carousel.addEventListener('touchcancel', endDrag, {passive:true});
+
+    // Pointer/mouse drag (also nice on desktop)
+    carousel.addEventListener('pointerdown', (e)=>{
+      onPointerMove(e.clientX);
+      startDrag(e.clientX);
+    });
+    window.addEventListener('pointermove', (e)=>{
+      if(!isDragging) return;
+      onPointerMove(e.clientX);
+      moveDrag(e.clientX);
+    });
+    window.addEventListener('pointerup', endDrag);
 
     const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 
@@ -307,7 +422,9 @@
       let target = AUTO_DRIFT; // default drift
       let inDead = false;
 
-      if(mouseX != null){
+      if(isDragging){
+        target = 0; // user is driving; don't add hover drift
+      } else if(mouseX != null){
         const norm = (mouseX - center) / center; // -1..1
         const absn = Math.abs(norm);
         if(absn < DEADZONE){ target = 0; inDead = true; }
@@ -346,9 +463,62 @@
     new ResizeObserver(()=>{ handleResize(); }).observe(carousel);
   </script>
 
-  <!-- Optional: same chatbot embed as homepage so UX is consistent -->
+  <!-- Zapier Chatbot sizing fallback for shadow DOM -->
+  <script>
+  /* --- Zapier Chatbot: shadow-DOM aware resize (fallback if CSS can't reach) --- */
+  (function(){
+    const host = document.querySelector('zapier-interfaces-chatbot-embed');
+    if(!host) return;
+
+    const sizes = () => {
+      const isMobile = matchMedia('(max-width: 768px)').matches;
+      return {
+        w: isMobile ? '92vw' : '380px',
+        h: isMobile ? '65vh' : '560px',
+        fab: isMobile ? '52px' : '56px'
+      };
+    };
+
+    function applyInto(root){
+      try{
+        const {w,h,fab} = sizes();
+
+        // Popup iframe inside the component (if shadowRoot is open)
+        const iframe = root.querySelector('iframe');
+        if(iframe){
+          Object.assign(iframe.style, {
+            width: w, height: h, maxWidth: '100%', maxHeight: '100%',
+            position: 'fixed', right: '16px', bottom: '16px',
+            borderRadius: '16px', border: '0', boxShadow: '0 12px 40px rgba(0,0,0,.35)', zIndex: 9999
+          });
+        }
+
+        // Try to shrink the floating trigger button if exposed
+        const trigger = root.querySelector('button, .trigger, [data-testid="popup-trigger"]');
+        if(trigger){
+          Object.assign(trigger.style, {
+            width: fab, height: fab, borderRadius: '50%'
+          });
+        }
+      }catch(e){}
+    }
+
+    function tick(){
+      if(host.shadowRoot) applyInto(host.shadowRoot);
+    }
+
+    Object.assign(host.style, {position:'fixed', right:'16px', bottom:'16px', zIndex: 9998});
+
+    const tries = [300, 800, 1500];
+    tries.forEach(t => setTimeout(tick, t));
+    const mo = new MutationObserver(tick);
+    mo.observe(document.documentElement, {subtree:true, childList:true});
+    addEventListener('resize', tick);
+  })();
+  </script>
+
+  <!-- Zapier Chatbot -->
   <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
   <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmehnpckl005ffcgsrk0r42w6'></zapier-interfaces-chatbot-embed>
 </body>
 </html>
-

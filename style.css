@@ -250,6 +250,15 @@
   }
 
   /* ========== Services Section ========== */
+
+  .section-intro {
+    margin: 2rem 0; /* Adds vertical spacing above and below */
+    font-size: 1.125rem; /* Slightly larger font for better readability */
+    line-height: 1.6; /* Improves line spacing */
+    color: var(--text-color); /* Ensures it uses the standard text color */
+    text-align: center; /* Centers the text */
+  }
+  
   .services {
     background: var(--light-bg);
     padding: 4rem 2rem;
@@ -297,7 +306,7 @@
   }
 
   .service-card h3 {
-    color: var(--blue-dark);
+    color: var(--blue-light);
     margin-bottom: 1rem;
     font-size: 1.25rem;
   }
@@ -306,6 +315,30 @@
     color: #333;
     font-size: 1rem;
   }
+
+  /* Ensure the service card is a flex container */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push content to the top and bottom */
+  height: 100%; /* Ensure the card takes up the full height */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Style the call-to-action link */
+.service-cta {
+  margin-top: auto; /* Push the link to the bottom */
+  text-align: center;
+  display: block;
+  color: #007BFF; /* Example color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.service-cta:hover {
+  text-decoration: underline;
+}
 
   /* New sections for About and Portfolio */
   .about-us, .portfolio-showcase {
