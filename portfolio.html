@@ -248,23 +248,36 @@
       onResize();
     })();
 
-    // ============== Portfolio Data (add more freely) ==============
-    const ITEMS = [
-      {type:'image', title:"Maeve's Tavern — Launch Graphics", subtitle:'IG Carousel, Brand System', src:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop'},
-      {type:'video', title:'Promo Reel: Weekend Vibes', subtitle:'15s Vertical Reel', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
-      {type:'image', title:'MEL3 DS — Brand Explorations', subtitle:'Logo grid & marks', src:'https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1600&auto=format&fit=crop'},
-      {type:'image', title:'Ghost River Brewing — Ad Concepts', subtitle:'OOH + Paid Social', src:'https://images.unsplash.com/photo-1492683513054-55277abccd96?q=80&w=1600&auto=format&fit=crop'},
-      {type:'image', title:'Website Redesign — Scrolll Studio Study', subtitle:'UX, motion experiments', src:'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1600&auto=format&fit=crop'},
-      {type:'image', title:"Irish Heritage Post Series", subtitle:"Weekly 'Word of the Week'", src:'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop'},
-      {type:'image', title:'Food & Drink Spotlight — Guinness Pour', subtitle:'Photography & Color Grading', src:'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1600&auto=format&fit=crop'},
-      {type:'image', title:'People of Maeve’s — Staff Features', subtitle:'Portrait Series', src:'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop'},
-      {type:'image', title:'Landing Page — MEL3 DS', subtitle:'Hero + Case Layout', src:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'},
-      {type:'video', title:'Aftermovie — Music on the Square', subtitle:'30s Recap', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
-      {type:'image', title:'Ad Set — Seasonal Promo', subtitle:'Paid Social — A/B variants', src:'https://images.unsplash.com/photo-1520975922203-b070df22bdb7?q=80&w=1600&auto=format&fit=crop'},
-      {type:'image', title:'Carousel — Menu Highlights', subtitle:'Design + Copy', src:'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1600&auto=format&fit=crop'},
-      {type:'image', title:'Web Concept — Clean Grid', subtitle:'Minimal layout study', src:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'},
-      {type:'image', title:'Poster — Live Music Night', subtitle:'Graphic Design', src:'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop'}
-    ];
+    // ============== Portfolio Data (auto-expanded to 26 items) ==============
+const ITEMS = [
+  {type:'image', title:"Project 1 — Launch Graphics", subtitle:'IG Carousel, Brand System', src:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop'},
+  {type:'video', title:"Project 2 — Promo Reel", subtitle:'15s Vertical Reel', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+  {type:'image', title:"Project 3 — Brand Explorations", subtitle:'Logo grid & marks', src:'https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 4 — Ad Concepts", subtitle:'OOH + Paid Social', src:'https://images.unsplash.com/photo-1492683513054-55277abccd96?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 5 — Web Redesign Study", subtitle:'UX, motion experiments', src:'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 6 — Heritage Post Series", subtitle:"Weekly content series", src:'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 7 — Food & Drink Spotlight", subtitle:'Photography & Color Grading', src:'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 8 — People Features", subtitle:'Portrait Series', src:'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 9 — Landing Page", subtitle:'Hero + Case Layout', src:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'},
+  {type:'video', title:"Project 10 — Aftermovie", subtitle:'30s Recap', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+  {type:'image', title:"Project 11 — Seasonal Promo", subtitle:'Paid Social — A/B variants', src:'https://images.unsplash.com/photo-1520975922203-b070df22bdb7?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 12 — Menu Highlights", subtitle:'Design + Copy', src:'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 13 — Web Concept", subtitle:'Minimal layout study', src:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 14 — Poster Design", subtitle:'Graphic Design', src:'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop'},
+  {type:'video', title:"Project 15 — Brand Reel", subtitle:'Social teaser', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+  {type:'image', title:"Project 16 — Campaign Concepts", subtitle:'Cross-platform content', src:'https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 17 — Event Coverage", subtitle:'Photography highlights', src:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 18 — Product Feature", subtitle:'Studio shoot', src:'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1600&auto=format&fit=crop'},
+  {type:'video', title:"Project 19 — Behind the Scenes", subtitle:'Making-of edit', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+  {type:'image', title:"Project 20 — Typography Study", subtitle:'Design exploration', src:'https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 21 — Social Campaign", subtitle:'Multi-format assets', src:'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1600&auto=format&fit=crop'},
+  {type:'video', title:"Project 22 — Motion Graphic", subtitle:'Animated explainer', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+  {type:'image', title:"Project 23 — Case Study Layout", subtitle:'Presentation design', src:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 24 — Ad Variants", subtitle:'Performance testing', src:'https://images.unsplash.com/photo-1520975922203-b070df22bdb7?q=80&w=1600&auto=format&fit=crop'},
+  {type:'image', title:"Project 25 — Event Poster", subtitle:'Promotional design', src:'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop'},
+  {type:'video', title:"Project 26 — Highlight Reel", subtitle:'Recap montage', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'}
+];
+
 
     // ============== Carousel Logic (desktop + mobile tuned, with finger drag) ==============
     let MAX_SPEED = 1.8;   // px/ms at far edges (desktop)
