@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#0a0b14" />
 
   <!-- Primary SEO -->
   <title>Portfolio | MEL3 Digital Solutions</title>
@@ -14,26 +15,35 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Portfolio | MEL3 Digital Solutions" />
   <meta property="og:description" content="Social media, content, design, ads, and web — a living, interactive portfolio." />
+  <meta property="og:url" content="https://mel3ds.com/portfolio" />
+  <meta property="og:image" content="https://mel3ds.com/og/portfolio-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Portfolio | MEL3 Digital Solutions" />
   <meta name="twitter:description" content="Explore MEL3 DS work in an infinite horizontal gallery." />
+  <meta name="twitter:image" content="https://mel3ds.com/og/portfolio-card.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://mel3ds.com/portfolio" />
 
   <!-- Assets -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="preconnect" href="https://interfaces.zapier.com" crossorigin />
 
   <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="photos/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="photos/favicon.png">
-  <link rel="apple-touch-icon" href="photos/favicon.png">
-  <link rel="shortcut icon" href="photos/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="photos/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="photos/favicon.png" />
+  <link rel="apple-touch-icon" href="photos/favicon.png" />
+  <link rel="shortcut icon" href="photos/favicon.png" />
+
+  <!-- Preload likely LCP image -->
+  <link rel="preload" as="image" href="photos/MEL3DSPortfolio/GhostRiver/GRLandslideGraphicPost.jpg" />
 
   <style>
     :root{ --bg-1:#06070d; --bg-2:#0a0b14; --ink:#e9eef7; --muted:#98a2b3; --sky:#7dd3fc; }
     *{box-sizing:border-box}
-
-    /* Ensure no sideways scroll + dynamic viewport height */
     html{height:100%; overflow-x:hidden;}
     body{
       margin:0;
@@ -45,8 +55,9 @@
       padding-left: env(safe-area-inset-left);
       padding-right: env(safe-area-inset-right);
     }
-    .wrap{position:relative; min-height:100dvh;}
+    body.no-scroll{ overflow:hidden; }
 
+    .wrap{position:relative; min-height:100dvh;}
     a{color:inherit; text-decoration:none}
 
     /* Header */
@@ -67,8 +78,7 @@
     .section{position:relative; z-index:10; padding:0 16px 64px}
     .carousel{
       position:relative; max-width:1400px; margin:0 auto; height:440px; overflow:hidden;
-      touch-action: pan-y; /* allow natural vertical scroll while we handle horizontal drag */
-      user-select:none;
+      touch-action: pan-y; user-select:none;
     }
     .hint{position:absolute; top:10px; left:50%; transform:translateX(-50%); color:#cbd5e180; font-size:13px; letter-spacing:.04em}
     .edge-left,.edge-right{position:absolute; top:0; bottom:0; width:96px; pointer-events:none}
@@ -77,10 +87,14 @@
     .center-line{position:absolute; top:0; bottom:0; left:50%; width:2px; transform:translateX(-50%); pointer-events:none; opacity:.12; background:linear-gradient(180deg,transparent, rgba(125,211,252,.55), transparent)}
 
     .track{position:absolute; inset:0; display:flex; align-items:center}
-    .inner{display:flex; gap:24px; padding-left:24px; will-change:transform}
+    .inner{display:flex; gap:24px; padding-left:24px;}
+    #track{ will-change: transform; }
 
-    .card{flex:0 0 auto; width:360px; height:320px; border-radius:16px; background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.08); backdrop-filter:saturate(110%) blur(2px); box-shadow:0 10px 25px rgba(2,6,23,.35); transition: box-shadow .25s, transform .25s, border-color .25s}
+    .card{flex:0 0 auto; width:360px; height:320px; border-radius:16px; background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.08); box-shadow:0 10px 25px rgba(2,6,23,.35); transition: box-shadow .25s, transform .25s, border-color .25s; cursor:pointer}
     .card:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.18); box-shadow:0 18px 48px rgba(56,189,248,.18)}
+    @supports ((-webkit-backdrop-filter: blur(2px)) or (backdrop-filter: blur(2px))){
+      .card{ -webkit-backdrop-filter:saturate(110%) blur(2px); backdrop-filter:saturate(110%) blur(2px); }
+    }
     .media{position:relative; height:252px; overflow:hidden; border-radius:16px 16px 0 0}
     .media img,.media video{width:100%; height:100%; object-fit:cover; display:block}
     .media:after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 60%, rgba(0,0,0,.25))}
@@ -91,7 +105,7 @@
     /* Footer */
     footer{position:relative; z-index:10; text-align:center; padding:0 24px 32px; color:#94a3b8; font-size:14px}
 
-    /* Background layers — use dynamic viewport height */
+    /* Background layers */
     #starfield{position:fixed; inset:0; width:100vw; height:100dvh; z-index:0}
     .landscape{position:fixed; inset:0; height:100dvh; z-index:1; pointer-events:none}
     .mountains{position:absolute; left:0; right:0; bottom:0; height:26vh; clip-path: polygon(0% 80%,10% 70%,20% 78%,30% 68%,42% 76%,52% 62%,64% 74%,74% 66%,86% 72%,100% 64%,100% 100%,0% 100%); background: linear-gradient(180deg, rgba(12,13,22,0) 0%, rgba(12,13,22,.4) 30%, rgba(12,13,22,.95) 100%)}
@@ -114,6 +128,7 @@
       .media{height:220px}
       .edge-left,.edge-right{width:48px}
       .hint{display:none}
+      body{ padding-bottom: 84px; } /* keep footer/CTA from being covered by chatbot */
     }
 
     /* Fallback for browsers without dvh support */
@@ -126,6 +141,58 @@
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce){
       .center-line{display:none}
+    }
+
+    /* --- Lightbox (fullscreen viewer) --- */
+    .lightbox{ position:fixed; inset:0; z-index:11000; display:none; }
+    .lightbox.open{ display:block; }
+    .lb-backdrop{
+      position:absolute; inset:0;
+      background:rgba(3,6,23,.72);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+    .lb-dialog{
+      position:absolute; inset:0;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      padding:24px; gap:12px;
+    }
+    .lb-media{
+      max-width:min(92vw, 1200px);
+      max-height:78vh;
+      display:flex; align-items:center; justify-content:center;
+      touch-action: pan-y; /* allow vertical scroll if content taller than viewport */
+    }
+    .lb-media img, .lb-media video{
+      max-width:100%; max-height:100%;
+      object-fit:contain; border-radius:14px;
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+      background:#000;
+    }
+    .lb-meta{ text-align:center; color:#cbd5e1; }
+    .lb-title{ font-weight:600; }
+    .lb-subt{ font-size:13px; opacity:.9; margin-top:4px;}
+
+    .lb-close, .lb-prev, .lb-next{
+      position:absolute;
+      width:44px; height:44px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(17,24,39,.6);
+      color:#e5e7eb; font-size:22px; line-height:1;
+      display:grid; place-items:center; cursor:pointer; z-index:2;
+      box-shadow:0 10px 30px rgba(0,0,0,.4);
+    }
+    .lb-close:hover, .lb-prev:hover, .lb-next:hover{ background:rgba(17,24,39,.75); }
+    .lb-close:focus-visible, .lb-prev:focus-visible, .lb-next:focus-visible{ outline:2px solid var(--sky); outline-offset:2px; }
+
+    .lb-close{ top:16px; right:16px; }
+    .lb-prev{ left:16px; top:50%; transform:translateY(-50%); }
+    .lb-next{ right:16px; top:50%; transform:translateY(-50%); }
+
+    /* Larger hit targets on small screens */
+    @media (max-width: 768px){
+      .lb-prev, .lb-next{ width:52px; height:52px; font-size:26px; }
     }
 
     /* --- Zapier Chatbot: responsive sizing & position --- */
@@ -157,13 +224,13 @@
   </style>
 </head>
 <body>
-  <canvas id="starfield"></canvas>
+  <canvas id="starfield" aria-hidden="true" tabindex="-1"></canvas>
   <div class="landscape" aria-hidden="true">
     <div class="mountains"></div>
     <div class="hills"></div>
     <div class="ground"></div>
   </div>
-  <div class="top-vignette"></div>
+  <div class="top-vignette" aria-hidden="true"></div>
 
   <div class="wrap">
     <header>
@@ -184,16 +251,16 @@
     </header>
 
     <section class="hero">
-      <h1>Bold & Efficient</h1>
-      <p class="sub">A living portfolio by <strong>MEL3 DS</strong>. Move your mouse <em>or finger</em> horizontally to control speed. The further from the center, the faster it scrolls. Hover/touch near center to pause.</p>
+      <h1>MEL3 Digital Solutions — Portfolio</h1>
+      <p class="sub"><strong>Bold &amp; Efficient.</strong> A living portfolio by <strong>MEL3 DS</strong>. Move your mouse <em>or finger</em> horizontally to control speed. Click any item to view fullscreen; press <kbd>Esc</kbd> or the × to close. Use ← → or swipe to navigate.</p>
     </section>
 
     <section id="work" class="section">
-      <div class="carousel" id="carousel">
+      <div class="carousel" id="carousel" aria-label="Portfolio carousel" role="region">
         <div class="hint">Drag left/right or move pointer to control speed</div>
-        <div class="center-line" id="centerline"></div>
-        <div class="edge-left"></div>
-        <div class="edge-right"></div>
+        <div class="center-line" id="centerline" aria-hidden="true"></div>
+        <div class="edge-left" aria-hidden="true"></div>
+        <div class="edge-right" aria-hidden="true"></div>
         <div class="track">
           <div class="inner" id="track"></div>
         </div>
@@ -201,6 +268,21 @@
     </section>
 
     <footer>© <span id="year"></span> MEL3 Digital Solutions — All rights reserved.</footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lb-backdrop" id="lbBackdrop"></div>
+    <div class="lb-dialog" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+      <button class="lb-close" id="lbClose" aria-label="Close (Esc)">×</button>
+      <button class="lb-prev" id="lbPrev" aria-label="Previous (←)">‹</button>
+      <button class="lb-next" id="lbNext" aria-label="Next (→)">›</button>
+      <div class="lb-media" id="lbMedia"></div>
+      <div class="lb-meta" id="lbMeta">
+        <div class="lb-title" id="lbTitle"></div>
+        <div class="lb-subt" id="lbSubt"></div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -249,45 +331,42 @@
     })();
 
     // ============== Portfolio Data (auto-expanded to 26 items) ==============
-const ITEMS = [
-  {type:'image', title:"Project 1 — Launch Graphics", subtitle:'IG Carousel, Brand System', src:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop'},
-  {type:'video', title:"Project 2 — Promo Reel", subtitle:'15s Vertical Reel', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
-  {type:'image', title:"Project 3 — Brand Explorations", subtitle:'Logo grid & marks', src:'https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 4 — Ad Concepts", subtitle:'OOH + Paid Social', src:'https://images.unsplash.com/photo-1492683513054-55277abccd96?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 5 — Web Redesign Study", subtitle:'UX, motion experiments', src:'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 6 — Heritage Post Series", subtitle:"Weekly content series", src:'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 7 — Food & Drink Spotlight", subtitle:'Photography & Color Grading', src:'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 8 — People Features", subtitle:'Portrait Series', src:'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 9 — Landing Page", subtitle:'Hero + Case Layout', src:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'},
-  {type:'video', title:"Project 10 — Aftermovie", subtitle:'30s Recap', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
-  {type:'image', title:"Project 11 — Seasonal Promo", subtitle:'Paid Social — A/B variants', src:'https://images.unsplash.com/photo-1520975922203-b070df22bdb7?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 12 — Menu Highlights", subtitle:'Design + Copy', src:'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 13 — Web Concept", subtitle:'Minimal layout study', src:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 14 — Poster Design", subtitle:'Graphic Design', src:'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop'},
-  {type:'video', title:"Project 15 — Brand Reel", subtitle:'Social teaser', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
-  {type:'image', title:"Project 16 — Campaign Concepts", subtitle:'Cross-platform content', src:'https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 17 — Event Coverage", subtitle:'Photography highlights', src:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 18 — Product Feature", subtitle:'Studio shoot', src:'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1600&auto=format&fit=crop'},
-  {type:'video', title:"Project 19 — Behind the Scenes", subtitle:'Making-of edit', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
-  {type:'image', title:"Project 20 — Typography Study", subtitle:'Design exploration', src:'https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 21 — Social Campaign", subtitle:'Multi-format assets', src:'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1600&auto=format&fit=crop'},
-  {type:'video', title:"Project 22 — Motion Graphic", subtitle:'Animated explainer', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
-  {type:'image', title:"Project 23 — Case Study Layout", subtitle:'Presentation design', src:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 24 — Ad Variants", subtitle:'Performance testing', src:'https://images.unsplash.com/photo-1520975922203-b070df22bdb7?q=80&w=1600&auto=format&fit=crop'},
-  {type:'image', title:"Project 25 — Event Poster", subtitle:'Promotional design', src:'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop'},
-  {type:'video', title:"Project 26 — Highlight Reel", subtitle:'Recap montage', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'}
-];
+    const ITEMS = [
+      {type:'image', title:"Project 1 — Launch Graphics", subtitle:'IG Carousel, Brand System', src: "photos/MEL3DSPortfolio/GhostRiver/GRLandslideGraphicPost.jpg"},
+      {type:'video', title:"Project 2 — Promo Reel", subtitle:'15s Vertical Reel', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+      {type:'image', title:"Project 3 — Brand Explorations", subtitle:'Logo grid & marks', src:'https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 4 — Ad Concepts", subtitle:'OOH + Paid Social', src:'https://images.unsplash.com/photo-1492683513054-55277abccd96?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 5 — Web Redesign Study", subtitle:'UX, motion experiments', src:'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 6 — Heritage Post Series", subtitle:"Weekly content series", src:'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 7 — Food & Drink Spotlight", subtitle:'Photography & Color Grading', src:'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 8 — People Features", subtitle:'Portrait Series', src:'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 9 — Landing Page", subtitle:'Hero + Case Layout', src:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'},
+      {type:'video', title:"Project 10 — Aftermovie", subtitle:'30s Recap', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+      {type:'image', title:"Project 11 — Seasonal Promo", subtitle:'Paid Social — A/B variants', src:'https://images.unsplash.com/photo-1520975922203-b070df22bdb7?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 12 — Menu Highlights", subtitle:'Design + Copy', src:'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 13 — Web Concept", subtitle:'Minimal layout study', src:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 14 — Poster Design", subtitle:'Graphic Design', src:'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop'},
+      {type:'video', title:"Project 15 — Brand Reel", subtitle:'Social teaser', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+      {type:'image', title:"Project 16 — Campaign Concepts", subtitle:'Cross-platform content', src:'https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 17 — Event Coverage", subtitle:'Photography highlights', src:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 18 — Product Feature", subtitle:'Studio shoot', src:'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1600&auto=format&fit=crop'},
+      {type:'video', title:"Project 19 — Behind the Scenes", subtitle:'Making-of edit', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+      {type:'image', title:"Project 20 — Typography Study", subtitle:'Design exploration', src:'https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 21 — Social Campaign", subtitle:'Multi-format assets', src:'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1600&auto=format&fit=crop'},
+      {type:'video', title:"Project 22 — Motion Graphic", subtitle:'Animated explainer', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+      {type:'image', title:"Project 23 — Case Study Layout", subtitle:'Presentation design', src:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 24 — Ad Variants", subtitle:'Performance testing', src:'https://images.unsplash.com/photo-1520975922203-b070df22bdb7?q=80&w=1600&auto=format&fit=crop'},
+      {type:'image', title:"Project 25 — Event Poster", subtitle:'Promotional design', src:'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop'},
+      {type:'video', title:"Project 26 — Highlight Reel", subtitle:'Recap montage', src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'}
+    ];
 
+    // ============== Carousel Logic ==============
+    let MAX_SPEED = 1.8, AUTO_DRIFT = reducedMotion ? 0 : 0.06, SMOOTHING = 0.18, DEADZONE = 0.07, EASING_POWER = 2.2, BRAKE = 0.82;
+    let GAP = 24;
 
-    // ============== Carousel Logic (desktop + mobile tuned, with finger drag) ==============
-    let MAX_SPEED = 1.8;   // px/ms at far edges (desktop)
-    let AUTO_DRIFT = reducedMotion ? 0 : 0.06; // 0 when reduced motion
-    let SMOOTHING = 0.18;
-    let DEADZONE = 0.07;
-    let EASING_POWER = 2.2;
-    let BRAKE = 0.82;
-
-    let GAP = 24; // will shrink on mobile
+    const carousel = document.getElementById('carousel');
+    const track = document.getElementById('track');
+    const year = document.getElementById('year'); year.textContent = new Date().getFullYear();
 
     const CARD_CSS_WIDTH = () => {
       const first = track.querySelector('.card');
@@ -297,47 +376,52 @@ const ITEMS = [
     function setConfigForViewport(){
       const w = window.innerWidth;
       if(w <= 768){
-        MAX_SPEED = 1.2;
-        AUTO_DRIFT = reducedMotion ? 0 : 0.045;
-        SMOOTHING = 0.22;
-        DEADZONE = 0.10;
-        EASING_POWER = 2.1;
-        BRAKE = 0.85;
-        GAP = 16;
+        MAX_SPEED = 1.2; AUTO_DRIFT = reducedMotion ? 0 : 0.045; SMOOTHING = 0.22; DEADZONE = 0.10; EASING_POWER = 2.1; BRAKE = 0.85; GAP = 16;
       } else {
-        MAX_SPEED = 1.8;
-        AUTO_DRIFT = reducedMotion ? 0 : 0.06;
-        SMOOTHING = 0.18;
-        DEADZONE = 0.07;
-        EASING_POWER = 2.2;
-        BRAKE = 0.82;
-        GAP = 24;
+        MAX_SPEED = 1.8; AUTO_DRIFT = reducedMotion ? 0 : 0.06; SMOOTHING = 0.18; DEADZONE = 0.07; EASING_POWER = 2.2; BRAKE = 0.82; GAP = 24;
       }
     }
 
-    const carousel = document.getElementById('carousel');
-    const track = document.getElementById('track');
-    const year = document.getElementById('year'); year.textContent = new Date().getFullYear();
+    // Pause/play carousel videos via IO (perf)
+    const io = ('IntersectionObserver' in window)
+      ? new IntersectionObserver(entries=>{
+          for(const e of entries){
+            const v = e.target.querySelector('video');
+            if(!v) continue;
+            if(e.isIntersecting) v.play().catch(()=>{});
+            else v.pause();
+          }
+        }, {root: document.querySelector('#carousel'), threshold: 0.2})
+      : null;
 
-    function createCard(item){
-      const card = document.createElement('div'); card.className='card';
+    function createCard(item, idx){
+      const card = document.createElement('div'); card.className='card'; card.dataset.idx = String(idx);
       const media = document.createElement('div'); media.className='media';
       if(item.type==='video'){
-        const v=document.createElement('video'); v.src=item.src; v.autoplay=true; v.loop=true; v.muted=true; v.playsInline=true; media.appendChild(v);
+        const v=document.createElement('video');
+        v.src=item.src; v.autoplay=true; v.loop=true; v.muted=true; v.playsInline=true; v.preload='metadata';
+        v.setAttribute('aria-label', item.title || 'Portfolio video');
+        media.appendChild(v);
       } else {
-        const img=document.createElement('img'); img.src=item.src; img.alt=item.title; img.draggable=false; media.appendChild(img);
+        const img=document.createElement('img');
+        img.src=item.src; img.alt=item.title; img.draggable=false; img.loading='lazy'; img.decoding='async';
+        media.appendChild(img);
       }
       const meta=document.createElement('div'); meta.className='meta';
       const t=document.createElement('div'); t.className='title'; t.title=item.title; t.textContent=item.title; meta.appendChild(t);
       if(item.subtitle){ const s=document.createElement('div'); s.className='subt'; s.title=item.subtitle; s.textContent=item.subtitle; meta.appendChild(s); }
       card.appendChild(media); card.appendChild(meta);
+      if(io) io.observe(card);
       return card;
     }
 
     function populate(){
       track.innerHTML='';
       const doubled = ITEMS.concat(ITEMS);
-      for(const it of doubled){ track.appendChild(createCard(it)); }
+      for(let i=0;i<doubled.length;i++){
+        const baseIdx = i % ITEMS.length;
+        track.appendChild(createCard(doubled[i], baseIdx));
+      }
     }
     populate();
 
@@ -345,20 +429,21 @@ const ITEMS = [
 
     function computeTrackWidth(){
       const cardW = CARD_CSS_WIDTH();
-      const gap = parseFloat(getComputedStyle(track).gap || GAP);
+      const cs = getComputedStyle(track);
+      const rawGap = cs.gap || cs.columnGap || (GAP + 'px');
+      const gap = Number.parseFloat(rawGap) || GAP;
       trackW = ITEMS.length * (cardW + gap);
     }
 
     setConfigForViewport();
     computeTrackWidth();
 
-    // --------- Interaction (hover speed + finger/mouse drag with inertia) ---------
+    // --------- Interaction ---------
     const onPointerMove = (clientX) => {
       const rect = carousel.getBoundingClientRect();
       mouseX = clientX - rect.left;
     };
 
-    // Hover/pointer movement to control speed (kept for desktop/laptop)
     carousel.addEventListener('pointermove', (e)=>{ onPointerMove(e.clientX); }, {passive:true});
     carousel.addEventListener('pointerleave', ()=>{ mouseX = null; }, {passive:true});
     carousel.addEventListener('mousemove', (e)=>{ onPointerMove(e.clientX); }, {passive:true});
@@ -380,12 +465,9 @@ const ITEMS = [
       const now = performance.now();
       const dx = clientX - dragLastX;
       const dt = Math.max(1, now - dragLastT);
-
       offset = offset - dx;      // move content opposite to finger
       speed = -(dx / dt);        // px/ms, feeds inertia
-
-      dragLastX = clientX;
-      dragLastT = now;
+      dragLastX = clientX; dragLastT = now;
     };
     const endDrag = () => {
       if(!isDragging) return;
@@ -393,7 +475,6 @@ const ITEMS = [
       carousel.classList.remove('dragging');
     };
 
-    // Touch drag (passive:false so we can preventDefault while dragging)
     carousel.addEventListener('touchstart', (e)=>{
       if(e.touches[0]){
         onPointerMove(e.touches[0].clientX);
@@ -403,7 +484,7 @@ const ITEMS = [
 
     carousel.addEventListener('touchmove', (e)=>{
       if(e.touches[0]){
-        if(isDragging) e.preventDefault(); // stop browser horizontal swipe stealing the gesture
+        if(isDragging) e.preventDefault();
         onPointerMove(e.touches[0].clientX);
         moveDrag(e.touches[0].clientX);
       }
@@ -412,7 +493,6 @@ const ITEMS = [
     carousel.addEventListener('touchend', endDrag, {passive:true});
     carousel.addEventListener('touchcancel', endDrag, {passive:true});
 
-    // Pointer/mouse drag (also nice on desktop)
     carousel.addEventListener('pointerdown', (e)=>{
       onPointerMove(e.clientX);
       startDrag(e.clientX);
@@ -426,23 +506,28 @@ const ITEMS = [
 
     const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 
+    // Keyboard nudge for accessibility
+    carousel.tabIndex = 0;
+    carousel.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowRight'){ offset += 80; }
+      if(e.key==='ArrowLeft'){  offset -= 80; }
+    });
+
     // animation
     let last = performance.now();
     function frame(){
       const now = performance.now(); const dt = now - last; last = now;
       const rect = carousel.getBoundingClientRect(); const w = rect.width; const center = w/2;
-
-      let target = AUTO_DRIFT; // default drift
-      let inDead = false;
+      let target = AUTO_DRIFT; let inDead = false;
 
       if(isDragging){
-        target = 0; // user is driving; don't add hover drift
+        target = 0;
       } else if(mouseX != null){
         const norm = (mouseX - center) / center; // -1..1
         const absn = Math.abs(norm);
         if(absn < DEADZONE){ target = 0; inDead = true; }
         else {
-          let t = (absn - DEADZONE) / (1 - DEADZONE); // 0..1
+          let t = (absn - DEADZONE) / (1 - DEADZONE);
           t = clamp(t, 0, 1);
           t = Math.pow(t, EASING_POWER);
           target = Math.sign(norm) * (t * MAX_SPEED);
@@ -474,60 +559,152 @@ const ITEMS = [
     const handleResize = () => { setConfigForViewport(); computeTrackWidth(); };
     window.addEventListener('resize', handleResize, {passive:true});
     new ResizeObserver(()=>{ handleResize(); }).observe(carousel);
+
+    // ================= Lightbox logic with arrows & swipe =================
+    const lightbox = document.getElementById('lightbox');
+    const lbMedia  = document.getElementById('lbMedia');
+    const lbTitle  = document.getElementById('lbTitle');
+    const lbSubt   = document.getElementById('lbSubt');
+    const lbClose  = document.getElementById('lbClose');
+    const lbBackdrop = document.getElementById('lbBackdrop');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+
+    let currentIdx = -1;
+    let lastFocus = null;
+
+    function preloadImage(src){
+      if(!src) return;
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = src;
+    }
+
+    function renderItem(item){
+      lbMedia.innerHTML = '';
+      if(item.type === 'video'){
+        const v = document.createElement('video');
+        v.src = item.src;
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
+        lbMedia.appendChild(v);
+        setTimeout(()=>{ try{ v.focus(); }catch(e){} }, 50);
+      } else {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.title || 'Portfolio image';
+        lbMedia.appendChild(img);
+      }
+      lbTitle.textContent = item.title || '';
+      lbSubt.textContent  = item.subtitle || '';
+    }
+
+    function showItem(idx){
+      currentIdx = ((idx % ITEMS.length) + ITEMS.length) % ITEMS.length; // wrap
+      const item = ITEMS[currentIdx];
+      renderItem(item);
+
+      // Preload neighbors if images
+      const prev = ITEMS[(currentIdx - 1 + ITEMS.length) % ITEMS.length];
+      const next = ITEMS[(currentIdx + 1) % ITEMS.length];
+      if(prev.type === 'image') preloadImage(prev.src);
+      if(next.type === 'image') preloadImage(next.src);
+    }
+
+    function openLightbox(idx){
+      lastFocus = document.activeElement;
+      document.body.classList.add('no-scroll');
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+      showItem(idx);
+      lbClose.focus();
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+      document.body.classList.remove('no-scroll');
+      lbMedia.innerHTML = '';
+      if(lastFocus && typeof lastFocus.focus === 'function'){ lastFocus.focus(); }
+      currentIdx = -1;
+    }
+
+    function nextItem(){ if(currentIdx !== -1) showItem(currentIdx + 1); }
+    function prevItem(){ if(currentIdx !== -1) showItem(currentIdx - 1); }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbBackdrop.addEventListener('click', closeLightbox);
+    lbNext.addEventListener('click', nextItem);
+    lbPrev.addEventListener('click', prevItem);
+
+    // Keyboard: Esc, ←, →
+    document.addEventListener('keydown', (e)=>{
+      if(!lightbox.classList.contains('open')) return;
+      if(e.key === 'Escape' || e.key === 'Esc') closeLightbox();
+      else if(e.key === 'ArrowRight') nextItem();
+      else if(e.key === 'ArrowLeft') prevItem();
+    });
+
+    // Swipe gestures on media area
+    let touchStartX = 0, touchStartY = 0, touchStartT = 0, swiping = false;
+    const SWIPE_THRESH = 48; // px
+    const ALLOWABLE_ANGLE = 30; // deg from horizontal
+
+    function onTouchStart(e){
+      if(!e.touches || !e.touches[0]) return;
+      const t = e.touches[0];
+      touchStartX = t.clientX; touchStartY = t.clientY; touchStartT = performance.now();
+      swiping = true;
+    }
+    function onTouchMove(e){
+      if(!swiping || !e.touches || !e.touches[0]) return;
+      const t = e.touches[0];
+      const dx = t.clientX - touchStartX;
+      const dy = t.clientY - touchStartY;
+      const angle = Math.abs(Math.atan2(dy, dx) * 180 / Math.PI);
+      // If movement is mostly horizontal, prevent default to avoid vertical scroll hijack
+      if(Math.abs(dx) > Math.abs(dy) && angle < ALLOWABLE_ANGLE){
+        e.preventDefault();
+      }
+    }
+    function onTouchEnd(e){
+      if(!swiping) return; swiping = false;
+      const dt = performance.now() - touchStartT;
+      const changed = e.changedTouches && e.changedTouches[0];
+      if(!changed) return;
+      const dx = changed.clientX - touchStartX;
+      const dy = changed.clientY - touchStartY;
+      if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > SWIPE_THRESH){
+        if(dx < 0) nextItem(); else prevItem();
+      }
+    }
+    document.getElementById('lbMedia').addEventListener('touchstart', onTouchStart, {passive:true});
+    document.getElementById('lbMedia').addEventListener('touchmove', onTouchMove, {passive:false});
+    document.getElementById('lbMedia').addEventListener('touchend', onTouchEnd, {passive:true});
+    document.getElementById('lbMedia').addEventListener('touchcancel', ()=>{ swiping=false; }, {passive:true});
+
+    // Delegate clicks to cards (ignore if dragging)
+    track.addEventListener('click', (e)=>{
+      if(isDragging) return;
+      const card = e.target.closest('.card');
+      if(!card) return;
+      const idx = Number(card.dataset.idx) || 0;
+      openLightbox(idx);
+    });
   </script>
 
-  <!-- Zapier Chatbot sizing fallback for shadow DOM -->
-  <script>
-  /* --- Zapier Chatbot: shadow-DOM aware resize (fallback if CSS can't reach) --- */
-  (function(){
-    const host = document.querySelector('zapier-interfaces-chatbot-embed');
-    if(!host) return;
-
-    const sizes = () => {
-      const isMobile = matchMedia('(max-width: 768px)').matches;
-      return {
-        w: isMobile ? '92vw' : '380px',
-        h: isMobile ? '65vh' : '560px',
-        fab: isMobile ? '52px' : '56px'
-      };
-    };
-
-    function applyInto(root){
-      try{
-        const {w,h,fab} = sizes();
-
-        // Popup iframe inside the component (if shadowRoot is open)
-        const iframe = root.querySelector('iframe');
-        if(iframe){
-          Object.assign(iframe.style, {
-            width: w, height: h, maxWidth: '100%', maxHeight: '100%',
-            position: 'fixed', right: '16px', bottom: '16px',
-            borderRadius: '16px', border: '0', boxShadow: '0 12px 40px rgba(0,0,0,.35)', zIndex: 9999
-          });
-        }
-
-        // Try to shrink the floating trigger button if exposed
-        const trigger = root.querySelector('button, .trigger, [data-testid="popup-trigger"]');
-        if(trigger){
-          Object.assign(trigger.style, {
-            width: fab, height: fab, borderRadius: '50%'
-          });
-        }
-      }catch(e){}
-    }
-
-    function tick(){
-      if(host.shadowRoot) applyInto(host.shadowRoot);
-    }
-
-    Object.assign(host.style, {position:'fixed', right:'16px', bottom:'16px', zIndex: 9998});
-
-    const tries = [300, 800, 1500];
-    tries.forEach(t => setTimeout(tick, t));
-    const mo = new MutationObserver(tick);
-    mo.observe(document.documentElement, {subtree:true, childList:true});
-    addEventListener('resize', tick);
-  })();
+  <!-- Structured data (optional) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Portfolio | MEL3 Digital Solutions",
+    "url": "https://mel3ds.com/portfolio",
+    "isPartOf": {"@type": "WebSite", "name": "MEL3 Digital Solutions", "url": "https://mel3ds.com"},
+    "about": "Selected work by MEL3 Digital Solutions: social media, content, design, ads, and web.",
+    "publisher": {"@type": "Organization", "name": "MEL3 Digital Solutions"}
+  }
   </script>
 
   <!-- Zapier Chatbot -->
@@ -535,3 +712,4 @@ const ITEMS = [
   <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmehnpckl005ffcgsrk0r42w6'></zapier-interfaces-chatbot-embed>
 </body>
 </html>
+
