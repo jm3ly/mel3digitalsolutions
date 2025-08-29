@@ -42,7 +42,11 @@
   <link rel="preload" as="image" href="photos/MEL3DSPortfolio/GhostRiver/GRLandslideGraphicPost.jpg" />
 
   <style>
-    :root{ --bg-1:#06070d; --bg-2:#0a0b14; --ink:#e9eef7; --muted:#98a2b3; --sky:#7dd3fc; }
+    :root{
+      --bg-1:#06070d; --bg-2:#0a0b14; --ink:#e9eef7; --muted:#98a2b3; --sky:#7dd3fc;
+      /* NEW: consistent safe side padding on any device or host */
+      --side-pad: max(env(safe-area-inset-left), 16px);
+    }
     *{box-sizing:border-box}
     html{height:100%; overflow-x:hidden;}
     body{
@@ -60,8 +64,12 @@
     .wrap{position:relative; min-height:100dvh;}
     a{color:inherit; text-decoration:none}
 
-    /* Header */
-    header{position:relative; z-index:10; max-width:1400px; margin:0 auto; padding:16px 24px}
+    /* Header (full width; keep comfortable internal padding) */
+    header{
+      position:relative; z-index:10; width:100%;
+      padding:16px 24px;
+      margin:0;
+    }
     .brand{display:flex; align-items:center; gap:14px}
     .logo-img{width:36px; height:36px; border-radius:12px; display:block}
     .site-title{font-weight:600}
@@ -74,20 +82,20 @@
     h1{margin:0; font-weight:700; letter-spacing:-.02em; font-size:clamp(26px,5vw,48px)}
     .sub{color:var(--muted); max-width:860px; margin:10px auto 0; line-height:1.6}
 
-    /* Carousel */
-    .section{position:relative; z-index:10; padding:0 16px 64px}
+    /* Section + Carousel (full width) */
+    .section{position:relative; z-index:10; padding:0 var(--side-pad) 64px}
     .carousel{
-      position:relative; max-width:1400px; margin:0 auto; height:440px; overflow:hidden;
+      position:relative; width:100%; height:440px; overflow:hidden;
       touch-action: pan-y; user-select:none;
+      margin:0;
     }
     .hint{position:absolute; top:10px; left:50%; transform:translateX(-50%); color:#cbd5e180; font-size:13px; letter-spacing:.04em}
-    .edge-left,.edge-right{position:absolute; top:0; bottom:0; width:96px; pointer-events:none}
-    .edge-left{left:0; background:linear-gradient(90deg,var(--bg-2),transparent)}
-    .edge-right{right:0; background:linear-gradient(270deg,var(--bg-2),transparent)}
+    /* Hide fades so edges don’t look cropped on some hosts */
+    .edge-left,.edge-right{display:none}
     .center-line{position:absolute; top:0; bottom:0; left:50%; width:2px; transform:translateX(-50%); pointer-events:none; opacity:.12; background:linear-gradient(180deg,transparent, rgba(125,211,252,.55), transparent)}
 
     .track{position:absolute; inset:0; display:flex; align-items:center}
-    .inner{display:flex; gap:24px; padding-left:24px;}
+    .inner{display:flex; gap:24px; padding-left:var(--side-pad);}
     #track{ will-change: transform; }
 
     .card{flex:0 0 auto; width:360px; height:320px; border-radius:16px; background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.08); box-shadow:0 10px 25px rgba(2,6,23,.35); transition: box-shadow .25s, transform .25s, border-color .25s; cursor:pointer}
@@ -123,10 +131,9 @@
     @media (max-width: 768px){
       .hero{padding:36px 16px 10px}
       .carousel{height:380px}
-      .inner{gap:16px; padding-left:16px}
+      .inner{gap:16px; padding-left:var(--side-pad)}
       .card{width:78vw; max-width:360px; height:300px}
       .media{height:220px}
-      .edge-left,.edge-right{width:48px}
       .hint{display:none}
       body{ padding-bottom: 84px; } /* keep footer/CTA from being covered by chatbot */
     }
@@ -221,6 +228,23 @@
       bottom: 16px;
       z-index: 9998;
     }
+
+    /* ---- HARDENING: defeat host wrappers that cap width or add margins ---- */
+    html, body, .wrap{
+      width:100% !important;
+      max-width:none !important;
+      margin:0 !important;
+      overflow-x:hidden !important;
+    }
+    /* Ensure key regions always span the viewport width */
+    header, .carousel{
+      width:100% !important;
+      max-width:none !important;
+      margin-left:0 !important;
+      margin-right:0 !important;
+    }
+    /* Safety for globally styled media on some hosts */
+    img, video{max-width:100%; height:auto;}
   </style>
 </head>
 <body>
@@ -330,7 +354,7 @@
       onResize();
     })();
 
-    // ============== Portfolio Data (auto-expanded to 26 items) ==============
+    // ============== Portfolio Data (your items) ==============
     const ITEMS = [
       {type:'image', title:"Ghost River Live Music Graphic", subtitle:'Landslide, a Flatwood Mac Cover Band', src: "photos/MEL3DSPortfolio/GhostRiver/GRLandslideGraphicPost.jpg"},
       {type:'video', title:"Ghost River Promo Reel", subtitle:'Landslide Reel', src: "photos/MEL3DSPortfolio/GhostRiver/GRLandslideVideo.mov"},
@@ -351,7 +375,7 @@
       {type:'image', title:"Maeve's Live Music Promo", subtitle:'Live Music On The Square', src: "photos/MEL3DSPortfolio/Maeve_sTavern/liveMusicOnTheSquare.jpg"},
       {type:'image', title:"Maeve's Drink Promo", subtitle:'Guinness Time', src: "photos/MEL3DSPortfolio/Maeve_sTavern/guinnessTime.jpg"},
       {type:'video', title:"Maeve's Drink Promo", subtitle:'Madame Maeves How To', src: "photos/MEL3DSPortfolio/Maeve_sTavern/madameMaevesOldFashionHowTo.mov"},
-      {type:'image', title:"Maeve's Official Launch", subtitle:'Owner "DJ', src: "photos/MEL3DSPortfolio/Maeve_sTavern/DJSmilingGraphic.png"},
+      {type:'image', title:"Maeve's Official Launch", subtitle:'Owner \"DJ', src: "photos/MEL3DSPortfolio/Maeve_sTavern/DJSmilingGraphic.png"},
       {type:'image', title:"Maeve's Live Music Story", subtitle:'John Eric', src: "photos/MEL3DSPortfolio/Maeve_sTavern/johnEricLiveStory.jpg"},
       {type:'video', title:"Maeve's Weekend Promo", subtitle:'Maeves On Sunday', src: "photos/MEL3DSPortfolio/Maeve_sTavern/maevesOnSunday.mp4"},
       {type:'image', title:"Maeve's Drink Promo", subtitle:'Guinness Time Continued', src: "photos/MEL3DSPortfolio/Maeve_sTavern/guinnessTimeContinued.jpg"},
@@ -556,7 +580,7 @@
 
     // responsiveness (recompute on resize)
     const handleResize = () => { setConfigForViewport(); computeTrackWidth(); };
-    window.addEventListener('resize', handleResize, {passive:true});
+    window.addEventListener('resize', {handleEvent:handleResize, passive:true});
     new ResizeObserver(()=>{ handleResize(); }).observe(carousel);
 
     // ================= Lightbox logic with arrows & swipe =================
@@ -662,14 +686,12 @@
       const dx = t.clientX - touchStartX;
       const dy = t.clientY - touchStartY;
       const angle = Math.abs(Math.atan2(dy, dx) * 180 / Math.PI);
-      // If movement is mostly horizontal, prevent default to avoid vertical scroll hijack
       if(Math.abs(dx) > Math.abs(dy) && angle < ALLOWABLE_ANGLE){
         e.preventDefault();
       }
     }
     function onTouchEnd(e){
       if(!swiping) return; swiping = false;
-      const dt = performance.now() - touchStartT;
       const changed = e.changedTouches && e.changedTouches[0];
       if(!changed) return;
       const dx = changed.clientX - touchStartX;
@@ -711,4 +733,5 @@
   <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmehnpckl005ffcgsrk0r42w6'></zapier-interfaces-chatbot-embed>
 </body>
 </html>
+
 
