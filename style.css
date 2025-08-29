@@ -250,6 +250,15 @@
   }
 
   /* ========== Services Section ========== */
+
+  .section-intro {
+    margin: 2rem 0; /* Adds vertical spacing above and below */
+    font-size: 1.125rem; /* Slightly larger font for better readability */
+    line-height: 1.6; /* Improves line spacing */
+    color: var(--text-color); /* Ensures it uses the standard text color */
+    text-align: center; /* Centers the text */
+  }
+
   .services {
     background: var(--light-bg);
     padding: 4rem 2rem;
@@ -297,7 +306,7 @@
   }
 
   .service-card h3 {
-    color: var(--blue-dark);
+    color: var(--blue-light);
     margin-bottom: 1rem;
     font-size: 1.25rem;
   }
@@ -306,6 +315,29 @@
     color: #333;
     font-size: 1rem;
   }
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push content to the top and bottom */
+  height: 100%; /* Ensure the card takes up the full height */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Style the call-to-action link */
+.service-cta {
+  margin-top: auto; /* Push the link to the bottom */
+  text-align: center;
+  display: block;
+  color: #007BFF; /* Example color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.service-cta:hover {
+  text-decoration: underline;
+}
 
   /* New sections for About and Portfolio */
   .about-us, .portfolio-showcase {
@@ -521,6 +553,48 @@
     margin-bottom: 1rem;
   }
 
+  .faq { background: var(--white); padding: 3.5rem 1rem; }
+  .faq .container { max-width: 900px; }
+  .faq h2 { text-align: center; color: var(--blue-dark); margin-bottom: 1.75rem; }
+  
+  .faq details {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: .25rem .75rem;
+    margin: 0 auto 12px;
+    box-shadow: var(--shadow);
+  }
+  
+  .faq summary {
+    cursor: pointer;
+    list-style: none; /* Firefox */
+    padding: .9rem .5rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+  
+  .faq summary::-webkit-details-marker { display: none; } /* Chrome/Safari */
+  
+  .faq summary::after {
+    content: "▸";
+    color: var(--blue-dark);
+    transition: transform .2s ease;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .faq details[open] summary::after { transform: rotate(90deg); }
+  
+  .faq details p {
+    color: #333;
+    padding: 0 .5rem 1rem .5rem;
+  }
+  
+
   /* ========== Footer ========== */
   .footer {
     background: var(--white);
@@ -592,3 +666,50 @@
     }
   }
   */
+
+  /* ========== Scrolling Portfolio Gallery ========== */
+
+.portfolio-gallery-container {
+  display: flex;
+  gap: 2vw; /* Gap between columns */
+  padding: 2vw;
+  overflow: hidden; /* Hide anything that goes outside the viewport */
+  background: var(--light-bg);
+}
+
+.gallery-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw; /* Gap between images in a column */
+  min-width: 250px; /* Minimum width for a column */
+  width: 100%;
+}
+
+.gallery-column img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* This is the CSS animation magic */
+@keyframes scrollUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+
+@keyframes scrollDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+/* Apply the animations */
+.gallery-column:nth-child(1) {
+  animation: scrollDown 60s linear infinite;
+}
+.gallery-column:nth-child(2) {
+  animation: scrollUp 80s linear infinite;
+}
+.gallery-column:nth-child(3) {
+  animation: scrollDown 70s linear infinite;
+}

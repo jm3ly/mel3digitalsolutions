@@ -1,44 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="MEL3 Digital Solutions helps your business grow online through social media, content, ads, and more.">
-  <title>MEL3 Digital Solutions</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <!-- Primary SEO -->
+  <title>Digital Marketing & Social Media Management | MEL3 Digital Solutions</title>
+  <meta name="description" content="MEL3 Digital Solutions is a digital marketing partner specializing in social media management, SEO, content creation, paid ads, and website integration. Work with us from anywhere." />
+
+  <!-- Open Graph / Twitter (domain-agnostic; add image/url later) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Digital Marketing & Social Media Management | MEL3 Digital Solutions" />
+  <meta property="og:description" content="Social media, SEO, content, and paid ads for growth-focused brands. We work with clients across the U.S. and worldwide." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MEL3 Digital Solutions — Digital Marketing that Drives Results" />
+  <meta name="twitter:description" content="Social media management, SEO, content, and paid ads for brands everywhere." />
+
+  <!-- Assets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="photos/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="photos/favicon.png">
   <link rel="apple-touch-icon" href="photos/favicon.png">
   <link rel="shortcut icon" href="photos/favicon.png">
 
+  <!-- Helpful Hints to Crawlers -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <!-- Structured Data (JSON-LD: Organization + Services; domain/phone intentionally omitted) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MEL3 Digital Solutions",
+    "description": "Digital marketing partner providing social media management, SEO, content creation, paid ads, and website integration.",
+    "brand": {
+      "@type": "Brand",
+      "name": "MEL3 Digital Solutions"
+    },
+    "makesOffer": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Social Media Management", "serviceType": "Social Media Management"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO Services", "serviceType": "Search Engine Optimization"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Content Creation", "serviceType": "Content Marketing"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Paid Advertising", "serviceType": "PPC Advertising"}}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Do you work with clients outside your city?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. We work with businesses across the United States and worldwide via remote collaboration and flexible schedules."}
+    },{
+      "@type": "Question",
+      "name": "What digital marketing services do you offer?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Social media management, SEO, content creation, paid ads, graphic design, website integration, analytics, and brand strategy consulting."}
+    },{
+      "@type": "Question",
+      "name": "How soon can I see results?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Paid ads can generate results within days. SEO and organic social typically show measurable gains within 3–6 months depending on competition and starting point."}
+    }]
+  }
+  </script>
 </head>
 <body>
-
-  <section id="intro" class="intro-section">
+  <section id="intro" class="intro-section" aria-label="Intro Animation">
     <div class="intro-logo">
-      <img src="photos/MEL3DSLogo3xTransparent.png" alt="MEL3 Digital Solutions Animated Logo" />
+      <img src="photos/MEL3DSLogo3xTransparent.png" width="480" height="480" alt="MEL3 Digital Solutions animated logo" />
     </div>
-    <div class="stars-container"></div>
+    <div class="stars-container" aria-hidden="true"></div>
   </section>
 
   <header class="header" role="banner">
     <div class="container flex-between">
       <div class="logo">
-        <img src="photos/MEL3DSLogo3xTransparent.png" alt="MEL3 Digital Solutions Logo" />
+        <a href="/" aria-label="MEL3 Digital Solutions home">
+          <img src="photos/MEL3DSLogo3xTransparent.png" width="160" height="160" alt="MEL3 Digital Solutions logo" />
+        </a>
       </div>
-      <!-- ===== THIS IS THE UPDATED DESKTOP NAVIGATION ===== -->
       <nav class="nav-links desktop-nav" role="navigation" aria-label="Main Navigation">
         <a href="#about">About</a>
-        <!--<a href="#portfolio">Portfolio</a>-->
+        <a href="portfolio.html">Portfolio</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </nav>
-      <!-- ============================================= -->
-      <button class="hamburger" aria-label="Open navigation menu">
+      <button class="hamburger" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
@@ -46,174 +103,157 @@
     </div>
   </header>
 
-  <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+  <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu" hidden>
     <button class="close-menu" aria-label="Close navigation menu">&times;</button>
-    <!-- Links are already correct here from previous code -->
     <nav class="mobile-nav-links">
       <a href="#about">About</a>
-      <!--<a href="#portfolio">Portfolio</a>-->
+      <a href="portfolio.html">Portfolio</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 
-  <section id="welcome" class="welcome-section">
-    <div class="container">
-      <h1>Grow Your Business Online</h1>
-      <p>We specialize in social media, content creation, paid ads, and everything digital to get you noticed.</p>
-      <a href="#contact" class="btn">Get a Free Consultation</a>
-    </div>
-  </section>
-
-  <!-- ===== NEW "ABOUT" SECTION IS PLACED HERE ===== -->
-  <section id="about" class="about-us">
-    <div class="container">
-      <h2>About MEL3 Digital Solutions</h2>
-      <div class="about-content">
-  
-        <div class="about-image">
-          <img src="photos/jesusFullBodyBlackandWhite.jpg" alt="A photo of the founder of MEL3 Digital Solutions">
+  <main id="main">
+    <section id="welcome" class="welcome-section">
+      <div class="container">
+        <h1>Digital Marketing & Social Media Management</h1>
+        <p>We help businesses stand out online with <strong>social media management</strong>, <strong>SEO</strong>, <strong>content creation</strong>, and <strong>paid advertising</strong>. We partner with clients across the U.S. and worldwide.</p>
+        <div class="cta-group">
+          <a href="#contact" class="btn">Get a Free Consultation</a>
         </div>
-  
-        <div class="about-text">
-          <h3>Your Vision. Our Strategy. Real Results.</h3>
-          <p>
-            At MEL3 Digital Solutions, our mission is to empower businesses to attract and retain clients by delivering impactful digital solutions. We combine strategy, creativity, and technology — from marketing and website integration to copywriting, branding, and graphic design — to help our clients grow with purpose and value.
-          </p>
-          <p>
-            The "3" in MEL3 stands for the three core values that guide everything we do: Integrity, Creativity, and Excellence. We believe in honest, transparent relationships.
-          </p>
-          <!--<a href="#portfolio" class="btn">See Our Work</a>-->
-        </div>
-  
-      </div> </div>
-  </section>
-  <!-- =============================================== -->
-
-  <!-- ===== "PORTFOLIO" SECTION IS HERE ===== -->
-  <!--<section id="portfolio" class="portfolio-showcase">
-    <div class="container">
-      <h2>Our Work</h2>
-      <div class="portfolio-grid">
-  
-        <div class="portfolio-card">
-          <div class="portfolio-image">
-            <img src="https://via.placeholder.com/600x400.png?text=Project+One" alt="Description of project one">
-          </div>
-          <div class="portfolio-info">
-            <h3>Client Project One</h3>
-            <p>A brief description of the project, the challenge, and the successful outcome we delivered.</p>
-            <div class="portfolio-tags">
-              <span>Social Media</span>
-              <span>Content Creation</span>
-            </div>
-          </div>
-        </div>
-  
-        <div class="portfolio-card">
-          <div class="portfolio-image">
-            <img src="https://via.placeholder.com/600x400.png?text=Project+Two" alt="Description of project two">
-          </div>
-          <div class="portfolio-info">
-            <h3>Client Project Two</h3>
-            <p>A brief description of the project, the challenge, and the successful outcome we delivered.</p>
-            <div class="portfolio-tags">
-              <span>Brand Design</span>
-              <span>Web Integration</span>
-            </div>
-          </div>
-        </div>
-  
-        <div class="portfolio-card">
-          <div class="portfolio-image">
-            <img src="https://via.placeholder.com/600x400.png?text=Project+Three" alt="Description of project three">
-          </div>
-          <div class="portfolio-info">
-            <h3>Client Project Three</h3>
-            <p>A brief description of the project, the challenge, and the successful outcome we delivered.</p>
-            <div class="portfolio-tags">
-              <span>Graphic Design</span>
-              <span>Copywriting</span>
-            </div>
-          </div>
-        </div>
-  
-      </div> </div>
-  </section> -->
-  <!-- ================================================= -->
-
-  <section class="services" id="services">
-    <h2>What We Offer:</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <i class="fa-solid fa-share-nodes service-icon"></i>
-        <h3>Social Media Management</h3>
-        <p>Boost your online presence with consistent, engaging content tailored to your audience.</p>
       </div>
-      <div class="service-card">
-        <i class="fa-solid fa-camera-retro service-icon"></i>
-        <h3>Content Creation</h3>
-        <p>High-quality graphics and videos to bring your brand to life across platforms.</p>
-      </div>
-      <div class="service-card">
-        <i class="fa-solid fa-bullhorn service-icon"></i>
-        <h3>Paid Advertising</h3>
-        <p>Maximize ROI with targeted ads on Facebook, Instagram, Google, and more.</p>
-      </div>
-      <div class="service-card">
-        <i class="fa-solid fa-palette service-icon"></i>
-        <h3>Graphic Design</h3>
-        <p>Professional visuals that capture attention and communicate your brand clearly.</p>
-      </div>
-      <div class="service-card">
-        <i class="fa-solid fa-pen-to-square service-icon"></i>
-        <h3>Copywriting</h3>
-        <p>Persuasive, on-brand messaging that drives engagement and conversions.</p>
-      </div>
-      <div class="service-card">
-        <i class="fa-solid fa-code service-icon"></i>
-        <h3>Website Integration</h3>
-        <p>Custom website features and seamless digital tool integration to streamline your business.</p>
-      </div>
-      <div class="service-card">
-        <i class="fa-solid fa-lightbulb service-icon"></i>
-        <h3>Brand Strategy Consulting</h3>
-        <p>Develop a cohesive and compelling brand identity aligned with your business goals.</p>
-      </div>
-      <div class="service-card">
-        <i class="fa-solid fa-chart-pie service-icon"></i>
-        <h3>Analytics & Reporting</h3>
-        <p>Get detailed insights into your digital performance with data-driven reports.</p>
-      </div>
-    </div>
     </section>
 
-  <section id="contact" class="contact">
-    <div class="container">
-      <h3>Let’s Work Together</h3>
-      <p>Enter your details below and we'll personally reach out to you.</p>
-      <form action="https://formspree.io/f/mvgaekbj" method="POST">
-        <input type="hidden" name="_redirect" value="thank-you.html" />
-        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
-        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
-        <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" />
-        <textarea id="message" name="message" rows="5" placeholder="Tell us what you need (max 100 words)" maxlength="700"></textarea>
-        <div class="note" id="wordCount">0 / 100 words</div>
-        <button type="submit" class="btn">Send</button>
-      </form>
-      <p class="note">We respect your privacy. No spam ever.</p>
-    </div>
-  </section>
+    <section id="about" class="about-us">
+      <div class="container about-content">
+        <div class="about-image">
+          <img src="photos/jesusFullBodyBlackandWhite.jpg" width="640" height="800" loading="lazy" alt="Jesus, founder of MEL3 Digital Solutions" />
+        </div>
+        <div class="about-text">
+          <h3>Your Vision. Our Strategy. Real Results.</h3>
+          <p>We empower businesses to attract and retain clients by combining strategy, creativity, and technology—across marketing, website integration, copywriting, branding, and design. The <strong>“3”</strong> in MEL3 represents our core values: <em>Integrity</em>, <em>Creativity</em>, and <em>Excellence</em>.</p>
+          <a href="#services" class="text-link">Explore our services →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <h2>Digital Marketing Services</h2>
+        <p class="section-intro">Full-funnel strategy and execution to grow traffic, followers, and revenue.</p>
+        <div class="services-grid">
+          <article class="service-card" id="social-media-management">
+            <i class="fa-solid fa-share-nodes service-icon" aria-hidden="true"></i>
+            <h3>Social Media Management</h3>
+            <p>Build an audience with consistent, on-brand content, community engagement, and creator‑grade short‑form video.</p>
+            <a href="#contact" class="service-cta" aria-label="Inquire about Social Media Management">Request a proposal</a>
+          </article>
+
+          <article class="service-card" id="seo-services">
+            <i class="fa-solid fa-magnifying-glass-chart service-icon" aria-hidden="true"></i>
+            <h3>SEO Services</h3>
+            <p>Technical, on-page, and content SEO to rank for high‑intent keywords like <em>digital marketing agency</em> and <em>social media manager</em>.</p>
+            <a href="#contact" class="service-cta" aria-label="Inquire about SEO Services">Start an SEO audit</a>
+          </article>
+
+          <article class="service-card" id="content-creation">
+            <i class="fa-solid fa-camera-retro service-icon" aria-hidden="true"></i>
+            <h3>Content Creation</h3>
+            <p>High‑quality graphics, photography, and video designed to convert across Instagram, Facebook, YouTube, and your website.</p>
+            <a href="portfolio.html" class="service-cta">View examples</a>
+          </article>
+
+          <article class="service-card" id="paid-advertising">
+            <i class="fa-solid fa-bullhorn service-icon" aria-hidden="true"></i>
+            <h3>Paid Advertising</h3>
+            <p>ROI‑focused campaigns on Meta, Google, and YouTube—backed by creative testing and analytics.</p>
+            <a href="#contact" class="service-cta">Plan my campaign</a>
+          </article>
+
+          <article class="service-card" id="graphic-design">
+            <i class="fa-solid fa-palette service-icon" aria-hidden="true"></i>
+            <h3>Graphic Design</h3>
+            <p>Brand assets and visuals that capture attention and communicate clearly.</p>
+            <a href="#contact" class="service-cta">Get a quote</a>
+          </article>
+
+          <article class="service-card" id="copywriting">
+            <i class="fa-solid fa-pen-to-square service-icon" aria-hidden="true"></i>
+            <h3>Copywriting</h3>
+            <p>Persuasive, on‑brand messaging for landing pages, ads, and campaigns.</p>
+            <a href="#contact" class="service-cta">Improve my copy</a>
+          </article>
+
+          <article class="service-card" id="website-integration">
+            <i class="fa-solid fa-code service-icon" aria-hidden="true"></i>
+            <h3>Website Integration</h3>
+            <p>Custom features and integrations that streamline your marketing stack.</p>
+            <a href="#contact" class="service-cta">Discuss integrations</a>
+          </article>
+
+          <article class="service-card" id="brand-strategy">
+            <i class="fa-solid fa-lightbulb service-icon" aria-hidden="true"></i>
+            <h3>Brand Strategy Consulting</h3>
+            <p>Clarify positioning, messaging, and content pillars to guide growth.</p>
+            <a href="#contact" class="service-cta">Book a strategy call</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <details>
+          <summary>Do you work with clients outside your city?</summary>
+          <p>Absolutely. We collaborate remotely with clients across the United States and internationally.</p>
+        </details>
+        <details>
+          <summary>Do you offer month‑to‑month or contracts?</summary>
+          <p>Both. Many clients start month‑to‑month, then move to quarterly engagements once goals and KPIs are aligned.</p>
+        </details>
+        <details>
+          <summary>Can you manage both organic social and paid ads?</summary>
+          <p>Yes. We design integrated plans that align content with ad strategy for compounding results.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact" 
+    class="contact"> <div class="container"> 
+      <h3>Let’s Work Together</h3> 
+      <p>Enter your details below and we'll personally reach out to you.</p> 
+      <form action="https://formspree.io/f/mvgaekbj" method="POST"> 
+        <input type="hidden" name="_redirect" value="thank-you.html" /> 
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" /> 
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" /> 
+        <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" /> 
+        <textarea id="message" name="message" rows="5" placeholder="Tell us what you need (max 100 words)" maxlength="700"></textarea> 
+        <div class="note" id="wordCount">0 / 100 words</div> 
+        <button type="submit" class="btn">Send</button> </form> 
+        <p class="note">We respect your privacy. No spam ever.</p> 
+      </div> 
+    </section>
+  </main>
 
   <footer class="footer" role="contentinfo">
     <div class="container">
+      <nav aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
       <p>© 2025 MEL3 Digital Solutions. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Scripts - Remember to add the ScrollTrigger one! -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="script.js"></script>
+  <!-- JS (defer to improve LCP/INP) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  <script src="script.js" defer></script>
+  <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+<zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmehnpckl005ffcgsrk0r42w6'></zapier-interfaces-chatbot-embed>
 </body>
 </html>

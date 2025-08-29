@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#0a0b14" />
+
+  <!-- Primary SEO -->
+  <title>Portfolio | MEL3 Digital Solutions</title>
+  <meta name="description" content="Selected work by MEL3 Digital Solutions: social media, content, design, ads, and web. Move your mouse or finger to explore the infinite gallery." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portfolio | MEL3 Digital Solutions" />
+  <meta property="og:description" content="Social media, content, design, ads, and web — a living, interactive portfolio." />
+  <meta property="og:url" content="https://mel3ds.com/portfolio" />
+  <meta property="og:image" content="https://mel3ds.com/og/portfolio-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portfolio | MEL3 Digital Solutions" />
+  <meta name="twitter:description" content="Explore MEL3 DS work in an infinite horizontal gallery." />
+  <meta name="twitter:image" content="https://mel3ds.com/og/portfolio-card.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://mel3ds.com/portfolio" />
+
+  <!-- Assets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="preconnect" href="https://interfaces.zapier.com" crossorigin />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="photos/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="photos/favicon.png" />
+  <link rel="apple-touch-icon" href="photos/favicon.png" />
+  <link rel="shortcut icon" href="photos/favicon.png" />
+
+  <!-- Preload likely LCP image -->
+  <link rel="preload" as="image" href="photos/MEL3DSPortfolio/GhostRiver/GRLandslideGraphicPost.jpg" />
+
+  <style>
+    :root{ --bg-1:#06070d; --bg-2:#0a0b14; --ink:#e9eef7; --muted:#98a2b3; --sky:#7dd3fc; }
+    *{box-sizing:border-box}
+    html{height:100%; overflow-x:hidden;}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--ink);
+      background:var(--bg-2);
+      overflow-x:hidden;
+      min-height:100dvh;
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+    body.no-scroll{ overflow:hidden; }
+
+    .wrap{position:relative; min-height:100dvh;}
+    a{color:inherit; text-decoration:none}
+
+    /* Header */
+    header{position:relative; z-index:10; max-width:1400px; margin:0 auto; padding:16px 24px}
+    .brand{display:flex; align-items:center; gap:14px}
+    .logo-img{width:36px; height:36px; border-radius:12px; display:block}
+    .site-title{font-weight:600}
+    .spacer{flex:1}
+    nav{display:flex; gap:20px; color:#cbd5e1}
+    nav a{opacity:.85} nav a:hover{opacity:1}
+
+    /* Hero */
+    .hero{position:relative; z-index:10; text-align:center; padding:48px 16px 12px}
+    h1{margin:0; font-weight:700; letter-spacing:-.02em; font-size:clamp(26px,5vw,48px)}
+    .sub{color:var(--muted); max-width:860px; margin:10px auto 0; line-height:1.6}
+
+    /* Carousel */
+    .section{position:relative; z-index:10; padding:0 16px 64px}
+    .carousel{
+      position:relative; max-width:1400px; margin:0 auto; height:440px; overflow:hidden;
+      touch-action: pan-y; user-select:none;
+    }
+    .hint{position:absolute; top:10px; left:50%; transform:translateX(-50%); color:#cbd5e180; font-size:13px; letter-spacing:.04em}
+    .edge-left,.edge-right{position:absolute; top:0; bottom:0; width:96px; pointer-events:none}
+    .edge-left{left:0; background:linear-gradient(90deg,var(--bg-2),transparent)}
+    .edge-right{right:0; background:linear-gradient(270deg,var(--bg-2),transparent)}
+    .center-line{position:absolute; top:0; bottom:0; left:50%; width:2px; transform:translateX(-50%); pointer-events:none; opacity:.12; background:linear-gradient(180deg,transparent, rgba(125,211,252,.55), transparent)}
+
+    .track{position:absolute; inset:0; display:flex; align-items:center}
+    .inner{display:flex; gap:24px; padding-left:24px;}
+    #track{ will-change: transform; }
+
+    .card{flex:0 0 auto; width:360px; height:320px; border-radius:16px; background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.08); box-shadow:0 10px 25px rgba(2,6,23,.35); transition: box-shadow .25s, transform .25s, border-color .25s; cursor:pointer}
+    .card:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.18); box-shadow:0 18px 48px rgba(56,189,248,.18)}
+    @supports ((-webkit-backdrop-filter: blur(2px)) or (backdrop-filter: blur(2px))){
+      .card{ -webkit-backdrop-filter:saturate(110%) blur(2px); backdrop-filter:saturate(110%) blur(2px); }
+    }
+    .media{position:relative; height:252px; overflow:hidden; border-radius:16px 16px 0 0}
+    .media img,.media video{width:100%; height:100%; object-fit:cover; display:block}
+    .media:after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 60%, rgba(0,0,0,.25))}
+    .meta{padding:10px 14px}
+    .title{font-size:15px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .subt{font-size:12px; color:#cbd5e1; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+    /* Footer */
+    footer{position:relative; z-index:10; text-align:center; padding:0 24px 32px; color:#94a3b8; font-size:14px}
+
+    /* Background layers */
+    #starfield{position:fixed; inset:0; width:100vw; height:100dvh; z-index:0}
+    .landscape{position:fixed; inset:0; height:100dvh; z-index:1; pointer-events:none}
+    .mountains{position:absolute; left:0; right:0; bottom:0; height:26vh; clip-path: polygon(0% 80%,10% 70%,20% 78%,30% 68%,42% 76%,52% 62%,64% 74%,74% 66%,86% 72%,100% 64%,100% 100%,0% 100%); background: linear-gradient(180deg, rgba(12,13,22,0) 0%, rgba(12,13,22,.4) 30%, rgba(12,13,22,.95) 100%)}
+    .hills{position:absolute; left:0; right:0; bottom:0; height:18vh; filter:blur(2px); clip-path: polygon(0% 60%, 8% 70%, 18% 62%, 28% 74%, 40% 66%, 52% 78%, 64% 62%, 74% 70%, 88% 58%, 100% 66%, 100% 100%, 0% 100%); background: linear-gradient(180deg, rgba(9,10,18,.2) 0%, rgba(9,10,18,.85) 60%, rgba(9,10,18,1) 100%)}
+    .ground{position:absolute; left:0; right:0; bottom:0; height:12vh; background:var(--bg-2)}
+    .top-vignette{position:fixed; inset:0; height:100dvh; pointer-events:none; z-index:2; background: radial-gradient(1000px 600px at 50% 0%, rgba(255,255,255,.06), transparent 60%)}
+
+    /* Cursor polish on devices with hover */
+    @media (hover:hover){
+      .carousel{ cursor: grab; }
+      .carousel.dragging{ cursor: grabbing; }
+    }
+
+    /* --------- Mobile tweaks --------- */
+    @media (max-width: 768px){
+      .hero{padding:36px 16px 10px}
+      .carousel{height:380px}
+      .inner{gap:16px; padding-left:16px}
+      .card{width:78vw; max-width:360px; height:300px}
+      .media{height:220px}
+      .edge-left,.edge-right{width:48px}
+      .hint{display:none}
+      body{ padding-bottom: 84px; } /* keep footer/CTA from being covered by chatbot */
+    }
+
+    /* Fallback for browsers without dvh support */
+    @supports not (height: 100dvh){
+      body{ min-height:100vh; }
+      .wrap{ min-height:100vh; }
+      #starfield, .landscape, .top-vignette{ height:100vh; }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .center-line{display:none}
+    }
+
+    /* --- Lightbox (fullscreen viewer) --- */
+    .lightbox{ position:fixed; inset:0; z-index:11000; display:none; }
+    .lightbox.open{ display:block; }
+    .lb-backdrop{
+      position:absolute; inset:0;
+      background:rgba(3,6,23,.72);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+    .lb-dialog{
+      position:absolute; inset:0;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      padding:24px; gap:12px;
+    }
+    .lb-media{
+      max-width:min(92vw, 1200px);
+      max-height:78vh;
+      display:flex; align-items:center; justify-content:center;
+      touch-action: pan-y; /* allow vertical scroll if content taller than viewport */
+    }
+    .lb-media img, .lb-media video{
+      max-width:100%; max-height:100%;
+      object-fit:contain; border-radius:14px;
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+      background:#000;
+    }
+    .lb-meta{ text-align:center; color:#cbd5e1; }
+    .lb-title{ font-weight:600; }
+    .lb-subt{ font-size:13px; opacity:.9; margin-top:4px;}
+
+    .lb-close, .lb-prev, .lb-next{
+      position:absolute;
+      width:44px; height:44px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(17,24,39,.6);
+      color:#e5e7eb; font-size:22px; line-height:1;
+      display:grid; place-items:center; cursor:pointer; z-index:2;
+      box-shadow:0 10px 30px rgba(0,0,0,.4);
+    }
+    .lb-close:hover, .lb-prev:hover, .lb-next:hover{ background:rgba(17,24,39,.75); }
+    .lb-close:focus-visible, .lb-prev:focus-visible, .lb-next:focus-visible{ outline:2px solid var(--sky); outline-offset:2px; }
+
+    .lb-close{ top:16px; right:16px; }
+    .lb-prev{ left:16px; top:50%; transform:translateY(-50%); }
+    .lb-next{ right:16px; top:50%; transform:translateY(-50%); }
+
+    /* Larger hit targets on small screens */
+    @media (max-width: 768px){
+      .lb-prev, .lb-next{ width:52px; height:52px; font-size:26px; }
+    }
+
+    /* --- Zapier Chatbot: responsive sizing & position --- */
+    iframe[src*="interfaces.zapier.com"]{
+      position: fixed !important;
+      right: 16px !important;
+      bottom: 16px !important;
+      width: min(92vw, 380px) !important;
+      height: min(70vh, 560px) !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      border: 0 !important;
+      border-radius: 16px !important;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35) !important;
+      z-index: 9999 !important;
+    }
+    @media (max-width: 768px){
+      iframe[src*="interfaces.zapier.com"]{
+        width: 92vw !important;
+        height: 65vh !important;
+      }
+    }
+    zapier-interfaces-chatbot-embed{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 9998;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true" tabindex="-1"></canvas>
+  <div class="landscape" aria-hidden="true">
+    <div class="mountains"></div>
+    <div class="hills"></div>
+    <div class="ground"></div>
+  </div>
+  <div class="top-vignette" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <a href="/" aria-label="MEL3 Digital Solutions home">
+          <img class="logo-img" src="photos/MEL3DSLogo3xTransparent.png" width="36" height="36" alt="MEL3 Digital Solutions logo"/>
+        </a>
+        <!--<div class="site-title">MEL3 Digital Solutions</div>-->
+        <div class="spacer"></div>
+        <nav aria-label="Main Navigation">
+          <a href="/">Home</a>
+          <a href="/#about">About</a>
+          <a href="portfolio.html#work" aria-current="page">Portfolio</a>
+          <a href="/#services">Services</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>MEL3 Digital Solutions — Portfolio</h1>
+      <p class="sub"><strong>Bold &amp; Efficient.</strong> A living portfolio by <strong>MEL3 DS</strong>. Move your mouse <em>or finger</em> horizontally to control speed. Click any item to view fullscreen; press <kbd>Esc</kbd> or the × to close. Use ← → or swipe to navigate.</p>
+    </section>
+
+    <section id="work" class="section">
+      <div class="carousel" id="carousel" aria-label="Portfolio carousel" role="region">
+        <div class="hint">Drag left/right or move pointer to control speed</div>
+        <div class="center-line" id="centerline" aria-hidden="true"></div>
+        <div class="edge-left" aria-hidden="true"></div>
+        <div class="edge-right" aria-hidden="true"></div>
+        <div class="track">
+          <div class="inner" id="track"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> MEL3 Digital Solutions — All rights reserved.</footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lb-backdrop" id="lbBackdrop"></div>
+    <div class="lb-dialog" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+      <button class="lb-close" id="lbClose" aria-label="Close (Esc)">×</button>
+      <button class="lb-prev" id="lbPrev" aria-label="Previous (←)">‹</button>
+      <button class="lb-next" id="lbNext" aria-label="Next (→)">›</button>
+      <div class="lb-media" id="lbMedia"></div>
+      <div class="lb-meta" id="lbMeta">
+        <div class="lb-title" id="lbTitle"></div>
+        <div class="lb-subt" id="lbSubt"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ================= Starfield =================
+    (function(){
+      const canvas = document.getElementById('starfield');
+      const ctx = canvas.getContext('2d');
+      let DPR = Math.max(1, Math.floor(window.devicePixelRatio || 1));
+
+      function resize(){
+        const rect = canvas.getBoundingClientRect();
+        const w = Math.round(rect.width), h = Math.round(rect.height);
+        canvas.width = w * DPR; canvas.height = h * DPR;
+        ctx.setTransform(1,0,0,1,0,0); ctx.scale(DPR,DPR);
+      }
+
+      const density = 0.00013; // stars per px^2
+      let stars = [];
+      function seed(){
+        const w = canvas.clientWidth, h = canvas.clientHeight; const count = Math.floor(w*h*density);
+        stars = new Array(count).fill(0).map(()=>({
+          x: Math.random()*w, y: Math.random()*h, z: Math.random()*0.6+0.4,
+          vx: (Math.random()*0.25+0.05) * (Math.random()<.5?-1:1), tw: Math.random()*Math.PI*2
+        }));
+      }
+      function frame(){
+        const w = canvas.clientWidth, h = canvas.clientHeight;
+        const g = ctx.createLinearGradient(0,0,0,h); g.addColorStop(0,'#06070d'); g.addColorStop(1,'#0a0b14');
+        ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
+        for(const s of stars){
+          s.x += s.vx * s.z; if(s.x<-2) s.x=w+2; if(s.x>w+2) s.x=-2; s.tw += 0.05 + (1-s.z)*0.03;
+          const r = (0.6 + Math.sin(s.tw)*0.2) * (1.2*s.z);
+          ctx.beginPath(); ctx.arc(s.x,s.y,r,0,Math.PI*2);
+          ctx.fillStyle = 'rgba(255,255,255,' + (0.6 + 0.4*Math.sin(s.tw*0.7)) + ')'; ctx.fill();
+        }
+        const vig = ctx.createRadialGradient(w*0.5,h*0.45,0,w*0.5,h*0.45, Math.max(w,h)*0.8);
+        vig.addColorStop(0,'rgba(0,0,0,0)'); vig.addColorStop(1,'rgba(0,0,0,0.45)');
+        ctx.fillStyle=vig; ctx.fillRect(0,0,w,h);
+      }
+      const onResize = ()=>{resize(); seed(); if(!reducedMotion) requestAnimationFrame(tick); else frame(); };
+      function tick(){ frame(); if(!reducedMotion) requestAnimationFrame(tick); }
+      new ResizeObserver(onResize).observe(canvas);
+      onResize();
+    })();
+
+    // ============== Portfolio Data (auto-expanded to 26 items) ==============
+    const ITEMS = [
+      {type:'image', title:"Ghost River Live Music Graphic", subtitle:'Landslide, a Flatwood Mac Cover Band', src: "photos/MEL3DSPortfolio/GhostRiver/GRLandslideGraphicPost.jpg"},
+      {type:'video', title:"Ghost River Promo Reel", subtitle:'Landslide Reel', src: "photos/MEL3DSPortfolio/GhostRiver/GRLandslideVideo.mov"},
+      {type:'image', title:"Ghost River Live Music Story", subtitle:'Social Stories', src: "photos/MEL3DSPortfolio/GhostRiver/ghostRiverLandslideStory.png"},
+      {type:'image', title:"Southern Image Landsccape", subtitle:'Professional Landscapers', src:"photos/MEL3DSPortfolio/SouthernImageLandscape/proLandscapers.png"},
+      {type:'image', title:"Southern image Landscape", subtitle:'Before and After', src: "photos/MEL3DSPortfolio/SouthernImageLandscape/beforeAndAfter1.png"}, 
+      {type:'image', title:"Margaritas Restaurant", subtitle:'Drink Story', src: "photos/MEL3DSPortfolio/Margaritas/ItsMargaritaTime.png"},
+      {type:'image', title:"Margaritas Restaurant", subtitle:'Street Taco Graphic', src: "photos/MEL3DSPortfolio/Margaritas/MargaritasStreetTacos.png"},
+      {type:'image', title:"MEL3 Logo", subtitle:'Transparent Logo', src: "photos/MEL3DSPortfolio/MEL3/MEL3DSLogo3xTransparent.png"},
+      {type:'video', title:"Maeve's Promo", subtitle:'Moments at Maeves', src: "photos/MEL3DSPortfolio/Maeve_sTavern/momentsAtMaeves.mp4"},
+      {type:'image', title:"Maeve's Rooftop", subtitle:'Rooftop Promo', src: "photos/MEL3DSPortfolio/Maeve_sTavern/cvilleRooftop.png"},
+      {type:'image', title:"Maeve's Atmosphere", subtitle:'Crowded Seats', src: "photos/MEL3DSPortfolio/Maeve_sTavern/crowdedSeatsGraphic.png"},
+      {type:'image', title:"Maeve's Drinks", subtitle:'Madame Maeves Old Fashioned', src: "photos/MEL3DSPortfolio/Maeve_sTavern/madameMaevesOldFashionInstagramPost.jpg"},
+      {type:'image', title:"Maeve's Drink Promo", subtitle:'Story In Every Pour', src: "photos/MEL3DSPortfolio/Maeve_sTavern/storyInEveryPour.png"},
+      {type:'video', title:"Maeve's Food Promo", subtitle:'Maeves Chicken Cutlet Video', src: "photos/MEL3DSPortfolio/Maeve_sTavern/maevesChickenCutlet.MOV"},
+      {type:'image', title:"Maeve's Live Music Schedule", subtitle:'August', src: "photos/MEL3DSPortfolio/Maeve_sTavern/liveMusicScheduleAugust.jpg"},
+      {type:'image', title:"Maeve's Live Music Story", subtitle:'John Albertson', src: "photos/MEL3DSPortfolio/Maeve_sTavern/albertsonStory.jpg"},
+      {type:'image', title:"Maeve's Live Music Promo", subtitle:'Live Music On The Square', src: "photos/MEL3DSPortfolio/Maeve_sTavern/liveMusicOnTheSquare.jpg"},
+      {type:'image', title:"Maeve's Drink Promo", subtitle:'Guinness Time', src: "photos/MEL3DSPortfolio/Maeve_sTavern/guinnessTime.jpg"},
+      {type:'video', title:"Maeve's Drink Promo", subtitle:'Madame Maeves How To', src: "photos/MEL3DSPortfolio/Maeve_sTavern/madameMaevesOldFashionHowTo.mov"},
+      {type:'image', title:"Maeve's Official Launch", subtitle:'Owner "DJ', src: "photos/MEL3DSPortfolio/Maeve_sTavern/DJSmilingGraphic.png"},
+      {type:'image', title:"Maeve's Live Music Story", subtitle:'John Eric', src: "photos/MEL3DSPortfolio/Maeve_sTavern/johnEricLiveStory.jpg"},
+      {type:'video', title:"Maeve's Weekend Promo", subtitle:'Maeves On Sunday', src: "photos/MEL3DSPortfolio/Maeve_sTavern/maevesOnSunday.mp4"},
+      {type:'image', title:"Maeve's Drink Promo", subtitle:'Guinness Time Continued', src: "photos/MEL3DSPortfolio/Maeve_sTavern/guinnessTimeContinued.jpg"},
+      {type:'image', title:"Maeve's Live Music Story", subtitle:'Andy Tanas', src: "photos/MEL3DSPortfolio/Maeve_sTavern/andyTanasLiveMusicStory.jpg"},
+      {type:'image', title:"Bog & Barley Private Room", subtitle:'Private Room Promo', src: "photos/MEL3DSPortfolio/Maeve_sTavern/bog&BarleyPrivateRoomGD.png"},
+    ];
+
+    // ============== Carousel Logic ==============
+    let MAX_SPEED = 1.8, AUTO_DRIFT = reducedMotion ? 0 : 0.06, SMOOTHING = 0.18, DEADZONE = 0.07, EASING_POWER = 2.2, BRAKE = 0.82;
+    let GAP = 24;
+
+    const carousel = document.getElementById('carousel');
+    const track = document.getElementById('track');
+    const year = document.getElementById('year'); year.textContent = new Date().getFullYear();
+
+    const CARD_CSS_WIDTH = () => {
+      const first = track.querySelector('.card');
+      return first ? first.getBoundingClientRect().width : 360;
+    };
+
+    function setConfigForViewport(){
+      const w = window.innerWidth;
+      if(w <= 768){
+        MAX_SPEED = 1.2; AUTO_DRIFT = reducedMotion ? 0 : 0.045; SMOOTHING = 0.22; DEADZONE = 0.10; EASING_POWER = 2.1; BRAKE = 0.85; GAP = 16;
+      } else {
+        MAX_SPEED = 1.8; AUTO_DRIFT = reducedMotion ? 0 : 0.06; SMOOTHING = 0.18; DEADZONE = 0.07; EASING_POWER = 2.2; BRAKE = 0.82; GAP = 24;
+      }
+    }
+
+    // Pause/play carousel videos via IO (perf)
+    const io = ('IntersectionObserver' in window)
+      ? new IntersectionObserver(entries=>{
+          for(const e of entries){
+            const v = e.target.querySelector('video');
+            if(!v) continue;
+            if(e.isIntersecting) v.play().catch(()=>{});
+            else v.pause();
+          }
+        }, {root: document.querySelector('#carousel'), threshold: 0.2})
+      : null;
+
+    function createCard(item, idx){
+      const card = document.createElement('div'); card.className='card'; card.dataset.idx = String(idx);
+      const media = document.createElement('div'); media.className='media';
+      if(item.type==='video'){
+        const v=document.createElement('video');
+        v.src=item.src; v.autoplay=true; v.loop=true; v.muted=true; v.playsInline=true; v.preload='metadata';
+        v.setAttribute('aria-label', item.title || 'Portfolio video');
+        media.appendChild(v);
+      } else {
+        const img=document.createElement('img');
+        img.src=item.src; img.alt=item.title; img.draggable=false; img.loading='lazy'; img.decoding='async';
+        media.appendChild(img);
+      }
+      const meta=document.createElement('div'); meta.className='meta';
+      const t=document.createElement('div'); t.className='title'; t.title=item.title; t.textContent=item.title; meta.appendChild(t);
+      if(item.subtitle){ const s=document.createElement('div'); s.className='subt'; s.title=item.subtitle; s.textContent=item.subtitle; meta.appendChild(s); }
+      card.appendChild(media); card.appendChild(meta);
+      if(io) io.observe(card);
+      return card;
+    }
+
+    function populate(){
+      track.innerHTML='';
+      const doubled = ITEMS.concat(ITEMS);
+      for(let i=0;i<doubled.length;i++){
+        const baseIdx = i % ITEMS.length;
+        track.appendChild(createCard(doubled[i], baseIdx));
+      }
+    }
+    populate();
+
+    let mouseX = null; let speed = 0; let offset = 0; let trackW = 0;
+
+    function computeTrackWidth(){
+      const cardW = CARD_CSS_WIDTH();
+      const cs = getComputedStyle(track);
+      const rawGap = cs.gap || cs.columnGap || (GAP + 'px');
+      const gap = Number.parseFloat(rawGap) || GAP;
+      trackW = ITEMS.length * (cardW + gap);
+    }
+
+    setConfigForViewport();
+    computeTrackWidth();
+
+    // --------- Interaction ---------
+    const onPointerMove = (clientX) => {
+      const rect = carousel.getBoundingClientRect();
+      mouseX = clientX - rect.left;
+    };
+
+    carousel.addEventListener('pointermove', (e)=>{ onPointerMove(e.clientX); }, {passive:true});
+    carousel.addEventListener('pointerleave', ()=>{ mouseX = null; }, {passive:true});
+    carousel.addEventListener('mousemove', (e)=>{ onPointerMove(e.clientX); }, {passive:true});
+    carousel.addEventListener('mouseleave', ()=>{ mouseX = null; }, {passive:true});
+
+    // Drag state + helpers
+    let isDragging = false;
+    let dragLastX = 0;
+    let dragLastT = 0;
+
+    const startDrag = (clientX) => {
+      isDragging = true;
+      dragLastX = clientX;
+      dragLastT = performance.now();
+      carousel.classList.add('dragging');
+    };
+    const moveDrag = (clientX) => {
+      if(!isDragging) return;
+      const now = performance.now();
+      const dx = clientX - dragLastX;
+      const dt = Math.max(1, now - dragLastT);
+      offset = offset - dx;      // move content opposite to finger
+      speed = -(dx / dt);        // px/ms, feeds inertia
+      dragLastX = clientX; dragLastT = now;
+    };
+    const endDrag = () => {
+      if(!isDragging) return;
+      isDragging = false;
+      carousel.classList.remove('dragging');
+    };
+
+    carousel.addEventListener('touchstart', (e)=>{
+      if(e.touches[0]){
+        onPointerMove(e.touches[0].clientX);
+        startDrag(e.touches[0].clientX);
+      }
+    }, {passive:true});
+
+    carousel.addEventListener('touchmove', (e)=>{
+      if(e.touches[0]){
+        if(isDragging) e.preventDefault();
+        onPointerMove(e.touches[0].clientX);
+        moveDrag(e.touches[0].clientX);
+      }
+    }, {passive:false});
+
+    carousel.addEventListener('touchend', endDrag, {passive:true});
+    carousel.addEventListener('touchcancel', endDrag, {passive:true});
+
+    carousel.addEventListener('pointerdown', (e)=>{
+      onPointerMove(e.clientX);
+      startDrag(e.clientX);
+    });
+    window.addEventListener('pointermove', (e)=>{
+      if(!isDragging) return;
+      onPointerMove(e.clientX);
+      moveDrag(e.clientX);
+    });
+    window.addEventListener('pointerup', endDrag);
+
+    const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+
+    // Keyboard nudge for accessibility
+    carousel.tabIndex = 0;
+    carousel.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowRight'){ offset += 80; }
+      if(e.key==='ArrowLeft'){  offset -= 80; }
+    });
+
+    // animation
+    let last = performance.now();
+    function frame(){
+      const now = performance.now(); const dt = now - last; last = now;
+      const rect = carousel.getBoundingClientRect(); const w = rect.width; const center = w/2;
+      let target = AUTO_DRIFT; let inDead = false;
+
+      if(isDragging){
+        target = 0;
+      } else if(mouseX != null){
+        const norm = (mouseX - center) / center; // -1..1
+        const absn = Math.abs(norm);
+        if(absn < DEADZONE){ target = 0; inDead = true; }
+        else {
+          let t = (absn - DEADZONE) / (1 - DEADZONE);
+          t = clamp(t, 0, 1);
+          t = Math.pow(t, EASING_POWER);
+          target = Math.sign(norm) * (t * MAX_SPEED);
+        }
+      }
+
+      speed += (target - speed) * SMOOTHING;
+      if(inDead){ speed *= BRAKE; }
+      if(inDead && Math.abs(speed) < 0.02) speed = 0;
+
+      offset += speed * dt;
+      if(trackW>0){ offset = ((offset % trackW) + trackW) % trackW; }
+      track.style.transform = 'translate3d(' + (-offset) + 'px,0,0)';
+
+      if(!reducedMotion) requestAnimationFrame(frame);
+    }
+    if(!reducedMotion) requestAnimationFrame(frame);
+
+    // center-line glow hint
+    const centerline = document.getElementById('centerline');
+    function updateCenterline(){
+      if(mouseX==null){ centerline.style.opacity = '.12'; return; }
+      const w = carousel.getBoundingClientRect().width; const near = Math.abs(mouseX - w/2) < (w * DEADZONE);
+      centerline.style.opacity = near? '.55' : '.12';
+    }
+    setInterval(updateCenterline, 80);
+
+    // responsiveness (recompute on resize)
+    const handleResize = () => { setConfigForViewport(); computeTrackWidth(); };
+    window.addEventListener('resize', handleResize, {passive:true});
+    new ResizeObserver(()=>{ handleResize(); }).observe(carousel);
+
+    // ================= Lightbox logic with arrows & swipe =================
+    const lightbox = document.getElementById('lightbox');
+    const lbMedia  = document.getElementById('lbMedia');
+    const lbTitle  = document.getElementById('lbTitle');
+    const lbSubt   = document.getElementById('lbSubt');
+    const lbClose  = document.getElementById('lbClose');
+    const lbBackdrop = document.getElementById('lbBackdrop');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+
+    let currentIdx = -1;
+    let lastFocus = null;
+
+    function preloadImage(src){
+      if(!src) return;
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = src;
+    }
+
+    function renderItem(item){
+      lbMedia.innerHTML = '';
+      if(item.type === 'video'){
+        const v = document.createElement('video');
+        v.src = item.src;
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
+        lbMedia.appendChild(v);
+        setTimeout(()=>{ try{ v.focus(); }catch(e){} }, 50);
+      } else {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.title || 'Portfolio image';
+        lbMedia.appendChild(img);
+      }
+      lbTitle.textContent = item.title || '';
+      lbSubt.textContent  = item.subtitle || '';
+    }
+
+    function showItem(idx){
+      currentIdx = ((idx % ITEMS.length) + ITEMS.length) % ITEMS.length; // wrap
+      const item = ITEMS[currentIdx];
+      renderItem(item);
+
+      // Preload neighbors if images
+      const prev = ITEMS[(currentIdx - 1 + ITEMS.length) % ITEMS.length];
+      const next = ITEMS[(currentIdx + 1) % ITEMS.length];
+      if(prev.type === 'image') preloadImage(prev.src);
+      if(next.type === 'image') preloadImage(next.src);
+    }
+
+    function openLightbox(idx){
+      lastFocus = document.activeElement;
+      document.body.classList.add('no-scroll');
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+      showItem(idx);
+      lbClose.focus();
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+      document.body.classList.remove('no-scroll');
+      lbMedia.innerHTML = '';
+      if(lastFocus && typeof lastFocus.focus === 'function'){ lastFocus.focus(); }
+      currentIdx = -1;
+    }
+
+    function nextItem(){ if(currentIdx !== -1) showItem(currentIdx + 1); }
+    function prevItem(){ if(currentIdx !== -1) showItem(currentIdx - 1); }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbBackdrop.addEventListener('click', closeLightbox);
+    lbNext.addEventListener('click', nextItem);
+    lbPrev.addEventListener('click', prevItem);
+
+    // Keyboard: Esc, ←, →
+    document.addEventListener('keydown', (e)=>{
+      if(!lightbox.classList.contains('open')) return;
+      if(e.key === 'Escape' || e.key === 'Esc') closeLightbox();
+      else if(e.key === 'ArrowRight') nextItem();
+      else if(e.key === 'ArrowLeft') prevItem();
+    });
+
+    // Swipe gestures on media area
+    let touchStartX = 0, touchStartY = 0, touchStartT = 0, swiping = false;
+    const SWIPE_THRESH = 48; // px
+    const ALLOWABLE_ANGLE = 30; // deg from horizontal
+
+    function onTouchStart(e){
+      if(!e.touches || !e.touches[0]) return;
+      const t = e.touches[0];
+      touchStartX = t.clientX; touchStartY = t.clientY; touchStartT = performance.now();
+      swiping = true;
+    }
+    function onTouchMove(e){
+      if(!swiping || !e.touches || !e.touches[0]) return;
+      const t = e.touches[0];
+      const dx = t.clientX - touchStartX;
+      const dy = t.clientY - touchStartY;
+      const angle = Math.abs(Math.atan2(dy, dx) * 180 / Math.PI);
+      // If movement is mostly horizontal, prevent default to avoid vertical scroll hijack
+      if(Math.abs(dx) > Math.abs(dy) && angle < ALLOWABLE_ANGLE){
+        e.preventDefault();
+      }
+    }
+    function onTouchEnd(e){
+      if(!swiping) return; swiping = false;
+      const dt = performance.now() - touchStartT;
+      const changed = e.changedTouches && e.changedTouches[0];
+      if(!changed) return;
+      const dx = changed.clientX - touchStartX;
+      const dy = changed.clientY - touchStartY;
+      if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > SWIPE_THRESH){
+        if(dx < 0) nextItem(); else prevItem();
+      }
+    }
+    document.getElementById('lbMedia').addEventListener('touchstart', onTouchStart, {passive:true});
+    document.getElementById('lbMedia').addEventListener('touchmove', onTouchMove, {passive:false});
+    document.getElementById('lbMedia').addEventListener('touchend', onTouchEnd, {passive:true});
+    document.getElementById('lbMedia').addEventListener('touchcancel', ()=>{ swiping=false; }, {passive:true});
+
+    // Delegate clicks to cards (ignore if dragging)
+    track.addEventListener('click', (e)=>{
+      if(isDragging) return;
+      const card = e.target.closest('.card');
+      if(!card) return;
+      const idx = Number(card.dataset.idx) || 0;
+      openLightbox(idx);
+    });
+  </script>
+
+  <!-- Structured data (optional) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Portfolio | MEL3 Digital Solutions",
+    "url": "https://mel3ds.com/portfolio",
+    "isPartOf": {"@type": "WebSite", "name": "MEL3 Digital Solutions", "url": "https://mel3ds.com"},
+    "about": "Selected work by MEL3 Digital Solutions: social media, content, design, ads, and web.",
+    "publisher": {"@type": "Organization", "name": "MEL3 Digital Solutions"}
+  }
+  </script>
+
+  <!-- Zapier Chatbot -->
+  <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+  <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmehnpckl005ffcgsrk0r42w6'></zapier-interfaces-chatbot-embed>
+</body>
+</html>
+
