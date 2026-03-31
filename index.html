@@ -125,33 +125,6 @@
       </div>
     </section>
 
-    <!-- Results Bar -->
-    <section class="results-bar" aria-label="Results highlights">
-      <div class="container">
-        <div class="results-grid">
-          <div class="result-item">
-            <span class="result-number">89+</span>
-            <span class="result-label">Organic Followers in 7 Days</span>
-          </div>
-          <div class="result-divider" aria-hidden="true"></div>
-          <div class="result-item">
-            <span class="result-number">2.1K+</span>
-            <span class="result-label">Total Post Views</span>
-          </div>
-          <div class="result-divider" aria-hidden="true"></div>
-          <div class="result-item">
-            <span class="result-number">314</span>
-            <span class="result-label">Organic Reach</span>
-          </div>
-          <div class="result-divider" aria-hidden="true"></div>
-          <div class="result-item">
-            <span class="result-number">2</span>
-            <span class="result-label">Local Businesses Served</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="about" class="about-us">
       <div class="container about-content">
         <div class="about-image">
@@ -262,14 +235,18 @@
           <div class="cs-header">
             <div class="cs-tag">Case Study</div>
             <h3>Southern Image Landscape</h3>
-            <p class="cs-subtitle">Local landscaping company — Collinsville, MS area</p>
+            <p class="cs-subtitle">Local landscaping company — Collierville, TN</p>
           </div>
-          <div class="cs-slides">
-            <img src="photos/MEL3DSPortfolio/CaseStudies/sil-cover.png" alt="Southern Image Landscape case study cover" loading="lazy" />
-            <img src="photos/MEL3DSPortfolio/CaseStudies/sil-before.png" alt="Before MEL3 stepped in" loading="lazy" />
-            <img src="photos/MEL3DSPortfolio/CaseStudies/sil-solution.png" alt="The solution MEL3 delivered" loading="lazy" />
-            <img src="photos/MEL3DSPortfolio/CaseStudies/sil-results.png" alt="Real results in 7 days" loading="lazy" />
-            <img src="photos/MEL3DSPortfolio/CaseStudies/sil-cta.png" alt="Let's work together" loading="lazy" />
+          <div class="cs-slides-wrapper">
+            <button class="cs-arrow cs-arrow--prev" aria-label="Previous image">&#8249;</button>
+            <div class="cs-slides" id="sil-slides">
+              <img src="photos/MEL3DSPortfolio/CaseStudies/sil-cover.png" alt="Southern Image Landscape case study cover" loading="lazy" data-gallery="sil" data-idx="0" />
+              <img src="photos/MEL3DSPortfolio/CaseStudies/sil-before.png" alt="Before MEL3 stepped in" loading="lazy" data-gallery="sil" data-idx="1" />
+              <img src="photos/MEL3DSPortfolio/CaseStudies/sil-solution.png" alt="The solution MEL3 delivered" loading="lazy" data-gallery="sil" data-idx="2" />
+              <img src="photos/MEL3DSPortfolio/CaseStudies/sil-results.png" alt="Real results in 7 days" loading="lazy" data-gallery="sil" data-idx="3" />
+              <img src="photos/MEL3DSPortfolio/CaseStudies/sil-cta.png" alt="Let's work together" loading="lazy" data-gallery="sil" data-idx="4" />
+            </div>
+            <button class="cs-arrow cs-arrow--next" aria-label="Next image">&#8250;</button>
           </div>
           <div class="cs-stats">
             <div class="cs-stat">
@@ -304,10 +281,10 @@
             <p class="cs-subtitle">Restaurant &amp; bar — Collierville, TN</p>
           </div>
           <div class="cs-slides cs-slides--grid">
-            <img src="photos/MEL3DSPortfolio/Maeve_sTavern/cvilleRooftop.png" alt="Maeve's rooftop promo graphic" loading="lazy" />
-            <img src="photos/MEL3DSPortfolio/Maeve_sTavern/crowdedSeatsGraphic.png" alt="Maeve's atmosphere graphic" loading="lazy" />
-            <img src="photos/MEL3DSPortfolio/Maeve_sTavern/madameMaevesOldFashionInstagramPost.jpg" alt="Maeve's cocktail promo" loading="lazy" />
-            <img src="photos/MEL3DSPortfolio/Maeve_sTavern/liveMusicOnTheSquare.jpg" alt="Maeve's live music promo" loading="lazy" />
+            <img src="photos/MEL3DSPortfolio/Maeve_sTavern/cvilleRooftop.png" alt="Maeve's rooftop promo graphic" loading="lazy" data-gallery="maeves" data-idx="0" />
+            <img src="photos/MEL3DSPortfolio/Maeve_sTavern/crowdedSeatsGraphic.png" alt="Maeve's atmosphere graphic" loading="lazy" data-gallery="maeves" data-idx="1" />
+            <img src="photos/MEL3DSPortfolio/Maeve_sTavern/madameMaevesOldFashionInstagramPost.jpg" alt="Maeve's cocktail promo" loading="lazy" data-gallery="maeves" data-idx="2" />
+            <img src="photos/MEL3DSPortfolio/Maeve_sTavern/liveMusicOnTheSquare.jpg" alt="Maeve's live music promo" loading="lazy" data-gallery="maeves" data-idx="3" />
           </div>
           <div class="cs-deliverables">
             <h4>What We Delivered</h4>
@@ -324,6 +301,18 @@
 
       </div>
     </section>
+
+    <!-- Case Study Lightbox -->
+    <div class="cs-lightbox" id="csLightbox" aria-hidden="true">
+      <div class="cs-lb-backdrop" id="csLbBackdrop"></div>
+      <button class="cs-lb-close" id="csLbClose" aria-label="Close">&#x2715;</button>
+      <button class="cs-lb-prev" id="csLbPrev" aria-label="Previous">&#8249;</button>
+      <button class="cs-lb-next" id="csLbNext" aria-label="Next">&#8250;</button>
+      <div class="cs-lb-img-wrap">
+        <img id="csLbImg" src="" alt="" />
+      </div>
+      <div class="cs-lb-counter" id="csLbCounter"></div>
+    </div>
 
     <section id="contact" 
     class="contact"> <div class="container"> 
@@ -359,6 +348,93 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
   <script src="script.js" defer></script>
+  <!-- Case Study Lightbox + Arrow JS -->
+  <script>
+    (function() {
+      // Gather all gallery images grouped by data-gallery
+      const galleries = {};
+      document.querySelectorAll('img[data-gallery]').forEach(img => {
+        const g = img.dataset.gallery;
+        if (!galleries[g]) galleries[g] = [];
+        galleries[g].push({ src: img.src, alt: img.alt });
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => openLb(g, parseInt(img.dataset.idx)));
+      });
+
+      // Arrow scroll for SIL strip
+      document.querySelectorAll('.cs-slides-wrapper').forEach(wrapper => {
+        const strip = wrapper.querySelector('.cs-slides');
+        const prev = wrapper.querySelector('.cs-arrow--prev');
+        const next = wrapper.querySelector('.cs-arrow--next');
+        if (prev && next && strip) {
+          const scroll = () => strip.clientWidth * 0.75;
+          prev.addEventListener('click', () => strip.scrollBy({ left: -scroll(), behavior: 'smooth' }));
+          next.addEventListener('click', () => strip.scrollBy({ left: scroll(), behavior: 'smooth' }));
+        }
+      });
+
+      // Lightbox
+      const lb      = document.getElementById('csLightbox');
+      const backdrop = document.getElementById('csLbBackdrop');
+      const closeBtn = document.getElementById('csLbClose');
+      const prevBtn  = document.getElementById('csLbPrev');
+      const nextBtn  = document.getElementById('csLbNext');
+      const lbImg    = document.getElementById('csLbImg');
+      const counter  = document.getElementById('csLbCounter');
+
+      let curGallery = null, curIdx = 0;
+
+      function openLb(gallery, idx) {
+        curGallery = gallery;
+        curIdx = idx;
+        renderLb();
+        lb.setAttribute('aria-hidden', 'false');
+        lb.classList.add('cs-lb--open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLb() {
+        lb.classList.remove('cs-lb--open');
+        lb.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+      }
+
+      function renderLb() {
+        const items = galleries[curGallery];
+        const item  = items[curIdx];
+        lbImg.src = item.src;
+        lbImg.alt = item.alt;
+        counter.textContent = (curIdx + 1) + ' / ' + items.length;
+        prevBtn.style.display = items.length > 1 ? '' : 'none';
+        nextBtn.style.display = items.length > 1 ? '' : 'none';
+      }
+
+      function prev() { const l = galleries[curGallery].length; curIdx = (curIdx - 1 + l) % l; renderLb(); }
+      function next() { const l = galleries[curGallery].length; curIdx = (curIdx + 1) % l; renderLb(); }
+
+      closeBtn.addEventListener('click', closeLb);
+      backdrop.addEventListener('click', closeLb);
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+
+      document.addEventListener('keydown', e => {
+        if (!lb.classList.contains('cs-lb--open')) return;
+        if (e.key === 'Escape') closeLb();
+        if (e.key === 'ArrowLeft') prev();
+        if (e.key === 'ArrowRight') next();
+      });
+
+      // Touch swipe support
+      let touchX = 0;
+      lbImg.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+      lbImg.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+      }, { passive: true });
+    })();
+  </script>
+
   <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
 <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmehnpckl005ffcgsrk0r42w6'></zapier-interfaces-chatbot-embed>
 </body>
