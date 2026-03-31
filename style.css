@@ -1130,15 +1130,33 @@ html, body {
 }
 
 /* ========== Global: prevent visited link purple ========== */
-a, a:visited {
+a:visited {
   color: inherit;
 }
-.btn:visited, .btn-outline:visited, .service-cta:visited,
-.text-link:visited, nav a:visited, .footer a:visited,
+
+/* Buttons always keep their explicit colors regardless of visited state */
+.btn, .btn:visited, .btn:link {
+  color: var(--blue-dark) !important;
+  text-decoration: none;
+}
+
+.btn-outline, .btn-outline:visited, .btn-outline:link {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.service-cta, .service-cta:visited, .service-cta:link {
+  color: #007BFF !important;
+}
+
+.text-link, .text-link:visited, .text-link:link {
+  color: var(--blue-light);
+}
+
+nav a:visited, .footer a:visited,
 .mobile-nav-links a:visited, .desktop-nav a:visited {
   color: inherit;
 }
-.service-cta:visited { color: #007BFF; }
 
 /* ========== Case Study Slides Wrapper + Arrows ========== */
 .cs-slides-wrapper {
