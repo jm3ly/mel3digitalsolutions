@@ -898,23 +898,7 @@ html, body {
   display: block;
 }
 
-/* Grid layout for Maeve's 4 images */
-.cs-slides--grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  overflow-x: unset;
-  overflow-y: visible;
-  scroll-snap-type: unset;
-  padding-top: 0;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.cs-slides--grid img {
-  width: 100%;
-  height: clamp(180px, 25vw, 260px);
-  flex: unset;
-}
+/* cs-slides--grid removed — Maeve's now uses the standard scrollable strip */
 
 /* Stats row */
 .cs-stats {
@@ -968,33 +952,53 @@ html, body {
   font-weight: 600;
 }
 
-/* Deliverables list */
+/* Deliverables grid */
 .cs-deliverables {
   margin-bottom: 1.8rem;
 }
 
 .cs-deliverables h4 {
-  font-size: 1rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 0.8rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
 }
 
-.cs-deliverables ul {
-  list-style: none;
-  padding: 0;
+.cs-deliverables-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.cs-deliver-item {
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
-.cs-deliverables ul li {
-  font-size: 0.93rem;
+.cs-deliver-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1e90ff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cs-deliver-desc {
+  font-size: 0.88rem;
   color: #475569;
-  padding: 0.6rem 0.9rem;
-  background: #f1f5f9;
-  border-radius: 8px;
   line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .cs-deliverables-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ========== FAQ (consolidated — overrides old styles) ========== */
