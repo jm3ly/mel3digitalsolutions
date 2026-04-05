@@ -728,22 +728,7 @@ html, body {
   align-items: center;
 }
 
-/* ========== btn-outline ========== */
-.btn-outline {
-  background: transparent !important;
-  border: 2px solid #fff;
-  color: #fff !important;
-  padding: 0.75rem 1.5rem;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s, color 0.3s;
-  display: inline-block;
-}
-.btn-outline:hover {
-  background: rgba(255,255,255,0.15) !important;
-  color: #fff !important;
-}
+/* btn-outline defined below in consolidated rules */
 
 /* ========== Results Bar ========== */
 .results-bar {
@@ -1145,8 +1130,19 @@ a:visited {
 }
 
 .btn-outline, .btn-outline:visited, .btn-outline:link {
-  color: #fff !important;
+  background: transparent !important;
+  border: 2px solid var(--blue-dark) !important;
+  color: var(--blue-dark) !important;
   text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  display: inline-block;
+  transition: background 0.3s, color 0.3s;
+}
+.btn-outline:hover {
+  background: var(--blue-dark) !important;
+  color: #fff !important;
 }
 
 .service-cta, .service-cta:visited, .service-cta:link {
