@@ -38,18 +38,29 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "LocalBusiness",
     "name": "MEL3 Digital Solutions",
-    "description": "Digital marketing partner providing social media management, SEO, content creation, paid ads, and website integration.",
-    "brand": {
-      "@type": "Brand",
-      "name": "MEL3 Digital Solutions"
+    "description": "Digital marketing agency in Collierville and Memphis, TN specializing in social media management, content creation, Meta ads, graphic design, and copywriting for local businesses.",
+    "url": "https://www.mel3ds.com",
+    "areaServed": [
+      {"@type": "City", "name": "Collierville", "sameAs": "https://www.wikidata.org/wiki/Q1055513"},
+      {"@type": "City", "name": "Memphis", "sameAs": "https://www.wikidata.org/wiki/Q49259"},
+      {"@type": "State", "name": "Tennessee"}
+    ],
+    "knowsAbout": ["Social Media Marketing", "Meta Ads", "Content Creation", "Graphic Design", "Copywriting", "Brand Strategy"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Meta Social Media Marketing Professional Certificate",
+      "credentialCategory": "Professional Certificate",
+      "recognizedBy": {"@type": "Organization", "name": "Meta"}
     },
     "makesOffer": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Social Media Management", "serviceType": "Social Media Management"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO Services", "serviceType": "Search Engine Optimization"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Content Creation", "serviceType": "Content Marketing"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Paid Advertising", "serviceType": "PPC Advertising"}}
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Social Media Management", "serviceType": "Social Media Management", "areaServed": "Collierville, Memphis, TN"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Meta Ads Management", "serviceType": "Paid Advertising", "areaServed": "Collierville, Memphis, TN"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Content Creation", "serviceType": "Content Marketing", "areaServed": "Collierville, Memphis, TN"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Graphic Design", "serviceType": "Graphic Design"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Copywriting", "serviceType": "Copywriting"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brand Strategy Consulting", "serviceType": "Brand Strategy"}}
     ]
   }
   </script>
@@ -93,6 +104,7 @@
         <a href="#about">About</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
       </nav>
       <button class="hamburger" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false">
@@ -109,6 +121,7 @@
       <a href="#about">About</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -117,7 +130,7 @@
     <section id="welcome" class="welcome-section">
       <div class="container">
         <h1>Digital Marketing & Social Media Management</h1>
-        <p>We help local businesses and growing brands stand out online with <strong>social media management</strong>, <strong>content creation</strong>, and <strong>paid advertising</strong>. Real results — from your neighborhood to nationwide.</p>
+        <p>We help local businesses in <strong>Collierville and Memphis, TN</strong> stand out online with <strong>social media management</strong>, <strong>content creation</strong>, and <strong>paid advertising</strong> — and we work with brands nationwide. Real results, real relationships.</p>
         <div class="cta-group">
           <a href="#contact" class="btn">Get a Free Consultation</a>
           <a href="#results" class="btn btn-outline">See Our Results</a>
@@ -128,12 +141,18 @@
     <section id="about" class="about-us">
       <div class="container about-content">
         <div class="about-image">
-          <img src="photos/jesusFullBodyBlackandWhite.jpg" width="640" height="800" loading="lazy" alt="Jesus, founder of MEL3 Digital Solutions" />
+          <img src="photos/jesusFullBodyBlackandWhite.jpg" width="640" height="800" loading="lazy" alt="Jesus Melendez, founder of MEL3 Digital Solutions" />
         </div>
         <div class="about-text">
-          <h3>Your Vision. Our Strategy. Real Results.</h3>
-          <p>We empower businesses to attract and retain clients by combining strategy, creativity, and technology—across marketing, website integration, copywriting, branding, and design. The <strong>“3”</strong> in MEL3 represents our core values: <em>Integrity</em>, <em>Creativity</em>, and <em>Excellence</em>.</p>
-          <a href="#services" class="text-link">Explore our services →</a>
+          <h3>Built for Business Owners Who Don't Have Time to Do It All</h3>
+          <p>I started MEL3 because I kept meeting incredible business owners in Collierville and Memphis who were too busy running their companies to build the online presence they deserved. They weren't bad at marketing — they just didn't have time for it, and navigating the digital world on their own wasn't realistic.</p>
+          <p>So I built MEL3 to be the partner they never had — someone who genuinely cares about their business, handles the creative and technical side, and delivers real results. I don't just manage accounts. I build relationships, and I pour real creativity into everything I make.</p>
+          <p>The <strong>&ldquo;3&rdquo;</strong> in MEL3 represents our three core values: <em>Integrity</em>, <em>Creativity</em>, and <em>Excellence</em> — the standard we hold ourselves to on every single project.</p>
+          <div class="about-cert">
+            <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+            <span>Meta-Certified Social Media Marketing Professional &mdash; verified Jan 2025</span>
+          </div>
+          <a href="#services" class="text-link">Explore our services &#8594;</a>
         </div>
       </div>
     </section>
@@ -199,6 +218,82 @@
             <a href="#contact" class="service-cta">Book a strategy call</a>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+      <div class="container">
+        <h2>Simple, Transparent Pricing</h2>
+        <p class="section-intro">No hidden fees. No long-term contracts required. Ad spend is always billed separately and stays in your control.</p>
+        <div class="cert-notice">
+          <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+          <span>All paid ad campaigns are managed by a <strong>Meta-certified marketing professional</strong> &mdash; verified Jan 2025</span>
+        </div>
+        <div class="pricing-grid">
+
+          <!-- Starter -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <p class="pricing-tier">Starter</p>
+              <p class="pricing-price">$800<span class="pricing-freq">/mo</span></p>
+              <p class="pricing-desc">For solo &amp; micro businesses building their social presence from the ground up.</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Social media management (1 platform)</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Up to 8 posts/month (graphics + copy)</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Community engagement &amp; replies</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Monthly performance report</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Brand strategy consultation (1 session)</li>
+              <li class="pricing-feature--off"><i class="fa-solid fa-minus" aria-hidden="true"></i>Paid advertising</li>
+              <li class="pricing-feature--off"><i class="fa-solid fa-minus" aria-hidden="true"></i>Reels / short-form video</li>
+              <li class="pricing-feature--off"><i class="fa-solid fa-minus" aria-hidden="true"></i>Website integration</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline">Get started</a>
+          </div>
+
+          <!-- Growth (featured) -->
+          <div class="pricing-card pricing-card--featured">
+            <div class="pricing-badge">Most popular</div>
+            <div class="pricing-header">
+              <p class="pricing-tier">Growth</p>
+              <p class="pricing-price">$1,800<span class="pricing-freq">/mo</span></p>
+              <p class="pricing-desc">For small businesses in Memphis &amp; Collierville ready to scale with organic and paid working together.</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Social media management (2 platforms)</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Up to 16 posts/month incl. Reels</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Community engagement &amp; replies</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Meta ads management <span class="cert-pill"><i class="fa-solid fa-certificate" aria-hidden="true"></i> certified</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Copywriting (ads + captions)</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Bi-weekly performance reports</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Brand strategy (ongoing)</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Priority support</li>
+            </ul>
+            <a href="#contact" class="btn">Get started</a>
+          </div>
+
+          <!-- Pro -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <p class="pricing-tier">Pro</p>
+              <p class="pricing-price">$3,500<span class="pricing-freq">/mo</span></p>
+              <p class="pricing-desc">Full-service marketing partner for brands that need everything executed at a high level.</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Social media management (3+ platforms)</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Up to 24 posts/month incl. Reels</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Meta ads management <span class="cert-pill"><i class="fa-solid fa-certificate" aria-hidden="true"></i> certified</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Full copywriting (ads, emails, landing pages)</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Graphic design (brand assets on demand)</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Website integration &amp; updates</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Weekly strategy calls + reporting</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i>Dedicated account management</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline">Get started</a>
+          </div>
+
+        </div>
+        <p class="pricing-note">All plans are month-to-month. Ad spend billed separately and stays in your control.</p>
       </div>
     </section>
 
@@ -351,6 +446,7 @@
         <a href="#about">About</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
