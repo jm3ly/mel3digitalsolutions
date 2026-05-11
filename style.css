@@ -1154,8 +1154,19 @@ a:visited {
 }
 
 nav a:visited, .footer a:visited,
-.mobile-nav-links a:visited, .desktop-nav a:visited {
+.mobile-nav-links a:visited {
   color: inherit;
+}
+
+.footer nav a,
+.footer nav a:visited,
+.footer nav a:active,
+.footer nav a:focus {
+  color: var(--blue-dark);
+}
+
+.desktop-nav a:visited {
+  color: var(--blue-dark);
 }
 
 /* ========== Case Study Slides Wrapper + Arrows ========== */
