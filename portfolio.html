@@ -16,11 +16,11 @@
   <meta property="og:title" content="Portfolio | MEL3 Digital Solutions" />
   <meta property="og:description" content="Social media, content, design, ads, and web — a living, interactive portfolio." />
   <meta property="og:url" content="https://mel3ds.com/portfolio" />
-  <meta property="og:image" content="https://mel3ds.com/og/portfolio-card.jpg" />
+  <meta property="og:image" content="https://mel3ds.com/photos/MEL3DSPortfolio/Maeve_sTavern/momentsAtMaeves.mp4" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Portfolio | MEL3 Digital Solutions" />
   <meta name="twitter:description" content="Explore MEL3 DS work in an infinite horizontal gallery." />
-  <meta name="twitter:image" content="https://mel3ds.com/og/portfolio-card.jpg" />
+  <meta name="twitter:image" content="https://mel3ds.com/photos/MEL3DSPortfolio/GhostRiver/GRLandslideGraphicPost.jpg" />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://mel3ds.com/portfolio" />
@@ -150,6 +150,130 @@
       .center-line{display:none}
     }
 
+    /* Sub-hint smaller instruction text */
+    .sub-hint {
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 600px;
+      margin: 6px auto 0;
+      line-height: 1.6;
+      opacity: 0.7;
+    }
+
+    /* Client label divider cards */
+    .card--label {
+      background: transparent;
+      border: 1px solid rgba(125,211,252,0.2);
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0 2rem;
+      cursor: default;
+      min-width: 220px;
+      width: 220px;
+    }
+    .card--label:hover {
+      transform: none;
+      border-color: rgba(125,211,252,0.35);
+      box-shadow: none;
+    }
+    .card--label .label-divider {
+      width: 32px;
+      height: 2px;
+      background: linear-gradient(to right, var(--sky), transparent);
+      margin-bottom: 12px;
+      border-radius: 2px;
+    }
+    .card--label .label-client {
+      font-size: 18px;
+      font-weight: 700;
+      color: #e9eef7;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .card--label .label-services {
+      font-size: 12px;
+      color: var(--sky);
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    /* Portfolio CTA section */
+    .portfolio-cta {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 5rem 1.5rem;
+    }
+    .portfolio-cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .portfolio-cta-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin: 0 0 0.75rem;
+    }
+    .portfolio-cta-heading {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: #e9eef7;
+      margin: 0 0 1rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .portfolio-cta-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 2rem;
+    }
+    .portfolio-cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .portfolio-btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .portfolio-btn--primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(56,189,248,0.35);
+    }
+    .portfolio-btn--primary:hover {
+      box-shadow: 0 6px 28px rgba(56,189,248,0.55);
+      transform: translateY(-2px);
+    }
+    .portfolio-btn--ghost {
+      background: transparent;
+      color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .portfolio-btn--ghost:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-cta { padding: 3.5rem 1.25rem; }
+      .portfolio-cta-btns { flex-direction: column; align-items: center; }
+      .portfolio-btn { width: 100%; max-width: 280px; text-align: center; }
+    }
+
     /* --- Lightbox (fullscreen viewer) --- */
     .lightbox{ position:fixed; inset:0; z-index:11000; display:none; }
     .lightbox.open{ display:block; }
@@ -269,6 +393,7 @@
           <a href="/#about">About</a>
           <a href="portfolio.html#work" aria-current="page">Portfolio</a>
           <a href="/#services">Services</a>
+          <a href="/#pricing">Pricing</a>
           <a href="/#contact">Contact</a>
         </nav>
       </div>
@@ -276,7 +401,8 @@
 
     <section class="hero">
       <h1>MEL3 Digital Solutions — Portfolio</h1>
-      <p class="sub"><strong>Bold &amp; Efficient.</strong> A living portfolio by <strong>MEL3 DS</strong>. Move your mouse <em>or finger</em> horizontally to control speed. Click any item to view fullscreen; press <kbd>Esc</kbd> or the × to close. Use ← → or swipe to navigate.</p>
+      <p class="sub">Real work for real businesses — from Collierville and Memphis to beyond. Every graphic, reel, and ad campaign below was built with intention.</p>
+      <p class="sub-hint">Move your mouse <em>or finger</em> horizontally to control speed &mdash; click any item to view fullscreen. Use ← → or swipe to navigate.</p>
     </section>
 
     <section id="work" class="section">
@@ -287,6 +413,18 @@
         <div class="edge-right" aria-hidden="true"></div>
         <div class="track">
           <div class="inner" id="track"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio-cta" aria-label="Call to action">
+      <div class="portfolio-cta-inner">
+        <p class="portfolio-cta-eyebrow">Ready to grow?</p>
+        <h2 class="portfolio-cta-heading">Like what you see? Let&#8217;s build something together.</h2>
+        <p class="portfolio-cta-sub">Whether you&#8217;re a local business in Collierville or Memphis, or a growing brand anywhere in the country &mdash; we&#8217;d love to hear from you.</p>
+        <div class="portfolio-cta-btns">
+          <a href="/#contact" class="portfolio-btn portfolio-btn--primary">Get a free consultation</a>
+          <a href="/#pricing" class="portfolio-btn portfolio-btn--ghost">See pricing</a>
         </div>
       </div>
     </section>
@@ -356,14 +494,17 @@
 
     // ============== Portfolio Data (your items) ==============
     const ITEMS = [
-      {type:'image', title:"Ghost River Live Music Graphic", subtitle:'Landslide, a Flatwood Mac Cover Band', src: "photos/MEL3DSPortfolio/GhostRiver/GRLandslideGraphicPost.jpg"},
+      {type:'label', title:"Ghost River Brewing", subtitle:'Social Media · Content · Events'},
+      {type:'image', title:"Ghost River Live Music Graphic", subtitle:'Landslide, a Fleetwood Mac Cover Band', src: "photos/MEL3DSPortfolio/GhostRiver/GRLandslideGraphicPost.jpg"},
       {type:'video', title:"Ghost River Promo Reel", subtitle:'Landslide Reel', src: "photos/MEL3DSPortfolio/GhostRiver/GRLandslideVideo.mov"},
       {type:'image', title:"Ghost River Live Music Story", subtitle:'Social Stories', src: "photos/MEL3DSPortfolio/GhostRiver/ghostRiverLandslideStory.png"},
+      {type:'label', title:"Southern Image Landscape", subtitle:'Social Media · Content Creation · Growth'},
       {type:'image', title:"Southern Image Landscape", subtitle:'Professional Landscapers', src:"photos/MEL3DSPortfolio/SouthernImageLandscape/proLandscapers.png"},
       {type:'image', title:"Southern image Landscape", subtitle:'Before and After', src: "photos/MEL3DSPortfolio/SouthernImageLandscape/beforeAndAfter1.png"}, 
+      {type:'label', title:"Margaritas Restaurant", subtitle:'Graphic Design · Social Content'},
       {type:'image', title:"Margaritas Restaurant", subtitle:'Drink Story', src: "photos/MEL3DSPortfolio/Margaritas/ItsMargaritaTime.png"},
       {type:'image', title:"Margaritas Restaurant", subtitle:'Street Taco Graphic', src: "photos/MEL3DSPortfolio/Margaritas/MargaritasStreetTacos.png"},
-      {type:'image', title:"MEL3 Logo", subtitle:'Transparent Logo', src: "photos/MEL3DSPortfolio/MEL3/MEL3DSLogo3xTransparent.png"},
+      {type:'label', title:"Maeve's Tavern", subtitle:'Social Media · Video · Events · Branding'},
       {type:'video', title:"Maeve's Promo", subtitle:'Moments at Maeves', src: "photos/MEL3DSPortfolio/Maeve_sTavern/momentsAtMaeves.mp4"},
       {type:'image', title:"Maeve's Rooftop", subtitle:'Rooftop Promo', src: "photos/MEL3DSPortfolio/Maeve_sTavern/cvilleRooftop.png"},
       {type:'image', title:"Maeve's Atmosphere", subtitle:'Crowded Seats', src: "photos/MEL3DSPortfolio/Maeve_sTavern/crowdedSeatsGraphic.png"},
@@ -418,6 +559,19 @@
       : null;
 
     function createCard(item, idx){
+      // Label / divider card
+      if(item.type === 'label'){
+        const card = document.createElement('div');
+        card.className = 'card card--label';
+        card.setAttribute('aria-hidden', 'true');
+        card.innerHTML =
+          '<div class="label-divider"></div>' +
+          '<div class="label-client">' + item.title + '</div>' +
+          '<div class="label-services">' + (item.subtitle || '') + '</div>';
+        return card;
+      }
+
+      // Standard media card
       const card = document.createElement('div'); card.className='card'; card.dataset.idx = String(idx);
       const media = document.createElement('div'); media.className='media';
       if(item.type==='video'){
@@ -705,11 +859,11 @@
     document.getElementById('lbMedia').addEventListener('touchend', onTouchEnd, {passive:true});
     document.getElementById('lbMedia').addEventListener('touchcancel', ()=>{ swiping=false; }, {passive:true});
 
-    // Delegate clicks to cards (ignore if dragging)
+    // Delegate clicks to cards (ignore if dragging or label)
     track.addEventListener('click', (e)=>{
       if(isDragging) return;
       const card = e.target.closest('.card');
-      if(!card) return;
+      if(!card || card.classList.contains('card--label')) return;
       const idx = Number(card.dataset.idx) || 0;
       openLightbox(idx);
     });
