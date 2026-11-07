@@ -221,13 +221,11 @@
 
     <section id="pricing" class="pricing-section">
       <div class="container">
-        <h2>Simple, Transparent Pricing</h2>
-        <p class="section-intro">No hidden fees. No long-term contracts required. Pick the plan that fits your stage, and scale up when you're ready.</p>
-
-        <div class="pricing-grid">
+        <h2>Custom Pricing</h2>
+        <p class="section-intro">Every contract is negotiable and tailored to the scope of work.</p>
 
           <!-- Starter -->
-          <div class="pricing-card">
+          <!-- <div class="pricing-card">
             <div class="pricing-header">
               <p class="pricing-tier-label">Starter</p>
               <div class="pricing-price-row">
@@ -248,10 +246,10 @@
               <li class="pricing-feature--off"><i class="fa-solid fa-minus" aria-hidden="true"></i><span>Website integration</span></li>
             </ul>
             <a href="#contact" class="btn btn-outline pricing-cta">Get started</a>
-          </div>
+          </div> -->
 
           <!-- Growth (featured) -->
-          <div class="pricing-card pricing-card--featured">
+          <!-- <div class="pricing-card pricing-card--featured">
             <div class="pricing-badge">Most Popular</div>
             <div class="pricing-header">
               <p class="pricing-tier-label">Growth</p>
@@ -273,10 +271,10 @@
               <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Priority support</span></li>
             </ul>
             <a href="#contact" class="btn pricing-cta pricing-cta--featured">Get started</a>
-          </div>
+          </div> -->
 
           <!-- Pro -->
-          <div class="pricing-card">
+          <!-- <div class="pricing-card">
             <div class="pricing-header">
               <p class="pricing-tier-label">Pro</p>
               <div class="pricing-price-row">
@@ -297,13 +295,11 @@
               <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Dedicated account management</span></li>
             </ul>
             <a href="#contact" class="btn btn-outline pricing-cta">Get started</a>
-          </div>
-
-        </div>
+          </div> -->
 
         <!-- Cert strip -->
         <div class="pricing-cert-strip">
-          <img src="photos/metaCert.jpg" alt="Meta Social Media Marketing Professional Certificate" class="pricing-cert-img" />
+          <img src="photos/metaCert.jpg" alt="Meta Social Media Marketing Professional Certificate" class="pricing-cert-img" data-gallery="certificate" data-idx="0" role="button" tabindex="0" aria-label="Expand Meta Social Media Marketing Professional Certificate" />
           <div class="pricing-cert-text">
             <i class="fa-solid fa-certificate" aria-hidden="true"></i>
             <div>
@@ -313,7 +309,6 @@
           </div>
         </div>
 
-        <p class="pricing-note">All plans are month-to-month &mdash; no long-term contracts required. Ad spend is billed separately and stays in your control.</p>
       </div>
     </section>
 
@@ -489,6 +484,12 @@
         galleries[g].push({ src: img.src, alt: img.alt });
         img.style.cursor = 'zoom-in';
         img.addEventListener('click', () => openLb(g, parseInt(img.dataset.idx)));
+        img.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openLb(g, parseInt(img.dataset.idx));
+          }
+        });
       });
 
       // Arrow scroll for SIL strip
